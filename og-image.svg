@@ -1,17 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f6f4ee"/>
-  <rect x="0" y="0" width="1200" height="10" fill="#1f4a3d"/>
+  <rect width="1200" height="630" fill="#f7f3ea"/>
+  <rect x="0" y="0" width="1200" height="12" fill="#174b38"/>
   <g font-family="'Noto Serif TC','Microsoft JhengHei',serif">
-    <rect x="90" y="86" width="92" height="92" rx="20" fill="#1f4a3d"/>
-    <text x="136" y="150" font-size="52" fill="#ffffff" text-anchor="middle" font-weight="600">算</text>
-    <text x="205" y="138" font-size="40" fill="#1c1b16" font-weight="600">生活計算所</text>
-    <text x="207" y="170" font-size="17" fill="#9a958b" font-family="'Noto Sans TC',sans-serif" letter-spacing="6">LIFE　CALC</text>
+    <rect x="90" y="82" width="96" height="96" rx="24" fill="#174b38"/>
+    <path d="M113 112h50M113 134h50" stroke="#f7f3ea" stroke-width="7" stroke-linecap="round"/>
+    <path d="M127 96v54M150 96v54" stroke="#f7f3ea" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="127" cy="160" r="7" fill="#d8a844"/>
+    <circle cx="150" cy="160" r="7" fill="#d8a844"/>
+    <text x="216" y="138" font-size="42" fill="#1e241f" font-weight="700">生活計算所</text>
+    <text x="219" y="170" font-size="17" fill="#7f8b82" font-family="'Noto Sans TC',sans-serif" letter-spacing="6">LIFE CALC</text>
   </g>
   <g font-family="'Noto Serif TC','Microsoft JhengHei',serif">
-    <text x="90" y="330" font-size="94" fill="#1c1b16" font-weight="600">台灣人的日常計算</text>
-    <text x="90" y="430" font-size="78" fill="#1f4a3d" font-weight="600" font-style="italic">一站算清楚</text>
+    <text x="90" y="330" font-size="94" fill="#1e241f" font-weight="700">台灣人的日常計算</text>
+    <text x="90" y="430" font-size="78" fill="#174b38" font-weight="700" font-style="italic">一站算清楚</text>
   </g>
-  <rect x="92" y="478" width="64" height="4" fill="#2d6553"/>
+  <rect x="92" y="478" width="78" height="5" fill="#d8a844"/>
   <text x="90" y="528" font-size="30" fill="#5a5750" font-family="'Noto Sans TC','Microsoft JhengHei',sans-serif">房貸 · 台電電費 · 薪資加班 · 股票成本 · 健康數據 · 複利</text>
-  <text x="90" y="582" font-size="26" fill="#9a958b" font-family="'Noto Sans TC',sans-serif" letter-spacing="2">免費 · 乾淨 · 手機好用　|　lifecalc.tw</text>
+  <text x="90" y="582" font-size="26" fill="#7f8b82" font-family="'Noto Sans TC',sans-serif" letter-spacing="2">免費 · 乾淨 · 手機好用　|　lifecalc.tw</text>
 </svg>

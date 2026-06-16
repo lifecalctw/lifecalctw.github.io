@@ -1,4 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#1f4a3d"/>
-  <text x="32" y="45" font-family="'Noto Serif TC','Microsoft JhengHei',serif" font-size="40" font-weight="600" fill="#ffffff" text-anchor="middle">算</text>
+  <rect width="64" height="64" rx="16" fill="#174b38"/>
+  <path d="M18 26h28M18 38h28" stroke="#f7f3ea" stroke-width="4" stroke-linecap="round"/>
+  <path d="M26 16v30M38 16v30" stroke="#f7f3ea" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="26" cy="50" r="4" fill="#d8a844"/>
+  <circle cx="38" cy="50" r="4" fill="#d8a844"/>
 </svg>

@@ -1,6 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="380" height="96" viewBox="0 0 380 96">
-  <rect x="14" y="16" width="64" height="64" rx="16" fill="#1f4a3d"/>
-  <text x="46" y="60" font-family="'Noto Serif TC','Microsoft JhengHei',serif" font-size="38" font-weight="600" fill="#ffffff" text-anchor="middle">算</text>
-  <text x="96" y="56" font-family="'Noto Serif TC','Microsoft JhengHei',serif" font-size="36" font-weight="600" fill="#1c1b16">生活計算所</text>
-  <text x="98" y="78" font-family="'Noto Sans TC',sans-serif" font-size="12" letter-spacing="5" fill="#9a958b">LIFE　CALC</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="112" viewBox="0 0 420 112" role="img" aria-labelledby="title desc">
+  <title id="title">生活計算所 LOGO</title>
+  <desc id="desc">結合計算機按鍵與成長刻度的生活計算所品牌標誌。</desc>
+  <rect x="12" y="14" width="84" height="84" rx="22" fill="#174b38"/>
+  <path d="M30 42h48M30 62h48" stroke="#f7f3ea" stroke-width="5" stroke-linecap="round"/>
+  <path d="M43 29v26M65 29v56" stroke="#f7f3ea" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="43" cy="78" r="5" fill="#d8a844"/>
+  <circle cx="65" cy="78" r="5" fill="#d8a844"/>
+  <text x="116" y="58" font-family="'Noto Serif TC','Microsoft JhengHei',serif" font-size="38" font-weight="700" fill="#1e241f">生活計算所</text>
+  <text x="119" y="82" font-family="'Noto Sans TC','Microsoft JhengHei',sans-serif" font-size="12" font-weight="700" letter-spacing="5" fill="#7f8b82">LIFE CALC</text>
 </svg>
