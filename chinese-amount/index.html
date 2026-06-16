@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中文大寫金額轉換｜數字轉國字大寫（支票、合約用） — 生活計算所</title>
+<meta name="description" content="免費中文大寫金額轉換：輸入阿拉伯數字，自動轉成國字大寫（壹貳參…元整），開支票、寫合約、發票收據填寫金額必備。即時、免註冊。">
+<link rel="canonical" href="https://lifecalc.tw/chinese-amount/">
+<meta property="og:title" content="中文大寫金額轉換｜數字轉國字大寫"><meta property="og:description" content="阿拉伯數字轉中文大寫金額，支票、合約填寫必備。">
+<meta property="og:type" content="website"><meta property="og:url" content="https://lifecalc.tw/chinese-amount/"><meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="生活計算所"><meta property="og:image" content="https://lifecalc.tw/og-image.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"中文大寫金額轉換","url":"https://lifecalc.tw/chinese-amount/","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","inLanguage":"zh-Hant","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://lifecalc.tw/"},{"@type":"ListItem","position":2,"name":"中文大寫金額轉換","item":"https://lifecalc.tw/chinese-amount/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"為什麼支票要寫中文大寫金額？","acceptedAnswer":{"@type":"Answer","text":"國字大寫（壹貳參…）筆畫複雜、不易竄改，用於支票、合約、收據可避免金額被塗改，是正式文件的慣例。"}},
+{"@type":"Question","name":"123456 的中文大寫是什麼？","acceptedAnswer":{"@type":"Answer","text":"123456 轉成中文大寫為「壹拾貳萬參仟肆佰伍拾陸元整」。"}},
+{"@type":"Question","name":"有小數（角、分）也能轉嗎？","acceptedAnswer":{"@type":"Answer","text":"可以，含小數時會轉成「…元X角X分」，沒有小數則以「元整」結尾。"}}]}
+</script>
+</head>
+<body>
+<header><div class="wrap bar"><a class="logo" href="../index.html">生活計算所<span class="en">Life&nbsp;Calc</span></a><div class="spacer"></div><a class="ghost" href="../index.html">所有工具</a></div></header>
+<main class="wrap">
+  <nav class="crumb"><a href="../index.html">首頁</a><span>›</span>中文大寫金額轉換</nav>
+  <article class="tool">
+    <div class="head"><svg class="ic ico" viewBox="0 0 24 24"><path d="M6 3h8l4 4v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v4h4"/><path d="M8.5 12.5h7M8.5 16h7"/></svg><h1 class="title">中文大寫金額轉換</h1></div>
+    <p class="lead">輸入阿拉伯數字，自動轉成國字大寫金額（壹貳參…元整）。</p>
+    <div class="panel">
+      <div class="field"><label>金額（阿拉伯數字）</label><input type="number" class="num" id="upper_amt" value="123456" oninput="calcUpper()"></div>
+    </div>
+    <div id="upper_out"></div>
+    <div class="note">支援整數與小數（角、分）。轉換結果僅供填寫參考，正式文件請再次核對。</div>
+    <div class="content">
+      <h2>為什麼要用中文大寫金額？</h2>
+      <p>支票、合約、借據、收據這類正式文件，金額除了寫阿拉伯數字，通常還要再寫一次「國字大寫」（壹、貳、參、肆…）。原因是大寫字筆畫複雜、很難被塗改加筆——例如「1」很容易被改成「7」或「100」，但「壹」就很難動手腳。所以用大寫金額是防止竄改、保障雙方的慣例。本工具幫你即時把數字轉成正確格式，省去一個字一個字查的麻煩。</p>
+      <h2>大寫金額的寫法規則</h2>
+      <p>常用對照是：0～9 為零壹貳參肆伍陸柒捌玖，位數用拾、佰、仟，大單位用萬、億。結尾若是整數會加「元整」，有角、分則寫成「…元X角X分」。中間有 0 時要補「零」（例如壹仟零伍元整），這些規則本工具都已處理好，你只要輸入數字即可。</p>
+      <h2>常見問題</h2>
+      <h3>金額很大也能轉嗎？</h3>
+      <p>可以，支援到「兆」以下的金額，涵蓋一般文書需求。</p>
+      <h3>「元整」和「元正」哪個對？</h3>
+      <p>兩者都常見，「元整」較通用。本工具使用「元整」，若你的文件習慣用「正」，可自行替換。</p>
+    </div>
+    <nav class="related"><h2>其他常用工具</h2><div class="rgrid">
+      <a class="rcard" href="../discount/index.html"><b>折扣計算機</b><span>打折與均價</span></a>
+      <a class="rcard" href="../roc-date/index.html"><b>民國 / 西元轉換</b><span>填表常用</span></a>
+      <a class="rcard" href="../unit-converter/index.html"><b>單位換算</b><span>長度重量</span></a>
+    </div></nav>
+  </article>
+</main>
+<footer class="wrap">
+  <div class="fabout"><div class="fname">生活計算所<span>Life Calc</span></div><p>專為台灣人打造的免費線上計算工具，集合房貸、台電電費、薪資與加班費、股票成本、健康數據等日常計算。介面乾淨、手機好用，所有運算在你的瀏覽器本機完成，不收集任何資料。</p></div>
+  <nav class="footlinks"><a href="../mortgage/index.html">房貸試算</a><a href="../electricity/index.html">台電電費</a><a href="../stock-fee/index.html">股票成本</a><a href="../salary/index.html">薪資換算</a><a href="../overtime/index.html">加班費</a><a href="../health/index.html">BMI／熱量</a><a href="../unit-converter/index.html">單位換算</a><a href="../compound-interest/index.html">複利計算</a><a href="../age/index.html">年齡計算</a><a href="../roc-date/index.html">民國轉換</a></nav>
+  <div class="fnav"><a href="../index.html">所有工具</a><a href="../guide/index.html">教學文章</a><a href="../about/index.html">關於</a><a href="../privacy/index.html">隱私權政策</a></div>
+  <b>生活計算所</b> · 免費工具 · 本機運算，不收集資料
+</footer>
+<script src="../calc.js"></script>
+</body>
+</html>

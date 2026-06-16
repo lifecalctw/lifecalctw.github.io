@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>房貸試算｜每月還款、總利息與本息攤還表 — 生活計算所</title>
+<meta name="description" content="免費房貸試算工具：輸入貸款金額、利率與年數，立即算出每月應繳金額、總利息支出與完整本息攤還表，支援寬限期。手機好用、即時計算。">
+<link rel="canonical" href="https://lifecalc.tw/mortgage/">
+<meta property="og:title" content="房貸試算｜每月還款、總利息與攤還表">
+<meta property="og:description" content="輸入金額、利率與年數，立即算出每月應繳與總利息，附本息攤還表。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lifecalc.tw/mortgage/">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="生活計算所">
+<meta property="og:image" content="https://lifecalc.tw/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"房貸試算","url":"https://lifecalc.tw/mortgage/","applicationCategory":"FinanceApplication","operatingSystem":"Web","inLanguage":"zh-Hant","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://lifecalc.tw/"},{"@type":"ListItem","position":2,"name":"房貸試算","item":"https://lifecalc.tw/mortgage/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"房貸每月還款怎麼算？","acceptedText":"","acceptedAnswer":{"@type":"Answer","text":"採本息平均攤還公式：每月還款 = 本金 × 月利率 × (1+月利率)^期數 ÷ ((1+月利率)^期數 − 1)，月利率為年利率除以 12，期數為年數乘以 12。"}},
+{"@type":"Question","name":"寬限期是什麼？","acceptedAnswer":{"@type":"Answer","text":"寬限期內只繳利息、不還本金，月付較低；寬限期結束後本金在剩餘期數內攤還，月付會明顯增加，總利息也會較高。"}},
+{"@type":"Question","name":"利率變動會影響試算嗎？","acceptedAnswer":{"@type":"Answer","text":"會。本工具以固定利率估算，實際房貸多為機動利率，升降息會改變每月還款與總利息，建議以實際核貸利率重新試算。"}}]}
+</script>
+</head>
+<body>
+<header><div class="wrap bar"><a class="logo" href="../index.html">生活計算所<span class="en">Life&nbsp;Calc</span></a><div class="spacer"></div><a class="ghost" href="../index.html">所有工具</a></div></header>
+<main class="wrap">
+  <nav class="crumb"><a href="../index.html">首頁</a><span>›</span>房貸試算</nav>
+  <article class="tool">
+    <div class="head"><svg class="ic ico" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></svg><h1 class="title">房貸試算</h1></div>
+    <p class="lead">輸入金額、利率與年數，立即算出每月應繳與總利息，並附本息攤還表。</p>
+    <div class="panel">
+      <div class="field"><label>貸款金額（萬元）</label><input type="number" class="num" id="m_amt" value="1000" oninput="calcM()"></div>
+      <div class="row"><div class="field"><label>年利率（%）</label><input type="number" class="num" id="m_rate" value="2.1" step="0.01" oninput="calcM()"></div>
+        <div class="field"><label>貸款年數</label><input type="number" class="num" id="m_yr" value="30" oninput="calcM()"></div></div>
+      <div class="field"><label>寬限期（年，只繳利息，可留 0）</label><input type="number" class="num" id="m_grace" value="0" oninput="calcM()"></div>
+    </div>
+    <div id="m_out"></div>
+
+    <div class="content">
+      <h2>房貸每月還款怎麼算？</h2>
+      <p>房貸最常見的還款方式是「本息平均攤還」：每個月繳的金額固定，但前期利息佔比較高、後期本金佔比較高。計算公式為「每月還款 = 本金 × 月利率 × (1+月利率) 的期數次方 ÷ ((1+月利率) 的期數次方 − 1)」，其中月利率是年利率除以 12，期數是貸款年數乘以 12。本工具會自動依此公式算出每月應繳、總利息，並逐年列出剩餘本金。</p>
+      <h2>不同利率，每月還款差多少？（以 1000 萬、30 年計）</h2>
+      <div class="tablewrap"><table>
+        <tr><th>年利率</th><th>每月還款</th><th>30 年總利息</th></tr>
+        <tr><td>1.5%</td><td>約 $34,500</td><td>約 242 萬</td></tr>
+        <tr><td>2.0%</td><td>約 $36,960</td><td>約 331 萬</td></tr>
+        <tr><td>2.1%</td><td>約 $37,470</td><td>約 349 萬</td></tr>
+        <tr><td>2.5%</td><td>約 $39,510</td><td>約 422 萬</td></tr>
+        <tr><td>3.0%</td><td>約 $42,160</td><td>約 518 萬</td></tr>
+      </table></div>
+      <p>同樣 1000 萬、30 年，利率每差 0.5%，每月還款大約差 2,000～2,600 元，30 年下來總利息可能差到上百萬。想換成你的金額與年數，用上方工具即時試算。</p>
+      <h2>寬限期該不該用？</h2>
+      <p>寬限期內只繳利息、不還本金，因此每月負擔較輕，適合短期現金流緊的人。但要注意：寬限期結束後，本金要在剩餘較短的期數內還完，月付會跳升，整體總利息也會比沒有寬限期更高。用本工具把寬限期填 0 與填幾年各算一次，就能直接比較差異。延伸閱讀：<a href="../guide/mortgage-grace-period/index.html">房貸寬限期是什麼、該不該用？</a></p>
+      <h2>常見問題</h2>
+      <h3>試算結果和銀行不一樣？</h3>
+      <p>本工具以固定利率估算，銀行多採機動利率，且可能有手續費、帳管費等，實際以銀行核貸條件為準。</p>
+      <h3>利率要填多少？</h3>
+      <p>可參考目前各銀行的房貸利率區間，填入你預期或被核定的利率；升降息會影響結果，建議多試幾個情境。</p>
+      <h3>會儲存我的資料嗎？</h3>
+      <p>不會。所有計算都在你的瀏覽器本機完成，不會上傳或儲存任何輸入內容。</p>
+    </div>
+
+    <nav class="related"><h2>其他常用工具</h2><div class="rgrid">
+      <a class="rcard" href="../compound-interest/index.html"><b>複利計算</b><span>看本金長期滾多大</span></a>
+      <a class="rcard" href="../stock-fee/index.html"><b>股票交易成本</b><span>手續費與證交稅</span></a>
+      <a class="rcard" href="../electricity/index.html"><b>台電電費試算</b><span>夏月累進級距</span></a>
+    </div></nav>
+  </article>
+</main>
+<footer class="wrap">
+  <div class="fabout">
+    <div class="fname">生活計算所<span>Life Calc</span></div>
+    <p>專為台灣人打造的免費線上計算工具，集合房貸、台電電費、薪資與加班費、股票成本、健康數據等日常計算。介面乾淨、手機好用，所有運算在你的瀏覽器本機完成，不收集任何資料。</p>
+  </div>
+  <nav class="footlinks"><a href="../mortgage/index.html">房貸試算</a><a href="../electricity/index.html">台電電費</a><a href="../stock-fee/index.html">股票成本</a><a href="../salary/index.html">薪資換算</a><a href="../overtime/index.html">加班費</a><a href="../health/index.html">BMI／熱量</a><a href="../unit-converter/index.html">單位換算</a><a href="../compound-interest/index.html">複利計算</a><a href="../age/index.html">年齡計算</a><a href="../roc-date/index.html">民國轉換</a></nav>
+  <div class="fnav"><a href="../index.html">所有工具</a><a href="../about/index.html">關於</a><a href="../privacy/index.html">隱私權政策</a></div>
+  <b>生活計算所</b> · 免費工具 · 本機運算，不收集資料
+</footer>
+<script src="../calc.js"></script>
+</body>
+</html>

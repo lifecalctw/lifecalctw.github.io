@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工作天數計算｜兩日期之間扣除週末的上班天數 — 生活計算所</title>
+<meta name="description" content="免費工作天數計算機：輸入起訖日期，算出扣除週末（六、日）的工作天數，可再扣除國定假日天數。計算工時、專案天數、請假規劃好用。">
+<link rel="canonical" href="https://lifecalc.tw/workdays/">
+<meta property="og:title" content="工作天數計算｜扣除週末的上班天數"><meta property="og:description" content="算兩日期之間扣除週末的工作天數，可再扣國定假日。">
+<meta property="og:type" content="website"><meta property="og:url" content="https://lifecalc.tw/workdays/"><meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="生活計算所"><meta property="og:image" content="https://lifecalc.tw/og-image.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"工作天數計算","url":"https://lifecalc.tw/workdays/","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","inLanguage":"zh-Hant","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://lifecalc.tw/"},{"@type":"ListItem","position":2,"name":"工作天數計算","item":"https://lifecalc.tw/workdays/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"工作天數怎麼算？","acceptedAnswer":{"@type":"Answer","text":"從起始日到結束日的總天數，扣掉星期六與星期日，就是工作天數；若有國定假日，可再額外扣除。"}},
+{"@type":"Question","name":"有含起訖兩天嗎？","acceptedAnswer":{"@type":"Answer","text":"有，本工具的計算包含起始日與結束日兩天在內。"}},
+{"@type":"Question","name":"國定假日會自動扣嗎？","acceptedAnswer":{"@type":"Answer","text":"工具會自動扣除週末，但國定假日每年不同，請在欄位手動填入該區間的國定假日天數再扣除。"}}]}
+</script>
+</head>
+<body>
+<header><div class="wrap bar"><a class="logo" href="../index.html">生活計算所<span class="en">Life&nbsp;Calc</span></a><div class="spacer"></div><a class="ghost" href="../index.html">所有工具</a></div></header>
+<main class="wrap">
+  <nav class="crumb"><a href="../index.html">首頁</a><span>›</span>工作天數計算</nav>
+  <article class="tool">
+    <div class="head"><svg class="ic ico" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="2.5"/><path d="M3.5 9.5h17M8 3.5v3M16 3.5v3"/><path d="M9 15.5l2 2 4-4"/></svg><h1 class="title">工作天數計算</h1></div>
+    <p class="lead">算兩個日期之間，扣除週末（六、日）的工作天數。</p>
+    <div class="panel">
+      <div class="row">
+        <div class="field"><label>起始日期</label><input type="date" id="work_from" oninput="calcWork()"></div>
+        <div class="field"><label>結束日期</label><input type="date" id="work_to" oninput="calcWork()"></div>
+      </div>
+      <div class="field"><label>國定假日天數（落在區間內，手動填，可留 0）</label><input type="number" class="num" id="work_hol" value="0" oninput="calcWork()"></div>
+    </div>
+    <div id="work_out"></div>
+    <div class="note">自動扣除週六、週日；國定假日每年不同，請手動填入該區間的假日天數。計算含起訖兩日。</div>
+    <div class="content">
+      <h2>工作天數怎麼算？</h2>
+      <p>工作天數就是把一段期間內的「上班日」數出來：從起始日到結束日（含頭尾兩天）的總天數，扣掉所有的星期六和星期日，剩下的就是工作天。這在估算專案工期、請假規劃、合約天數、或「X 個工作天後到貨」時很常用。本工具會同時告訴你總天數、週末幾天、以及扣完之後的工作天。</p>
+      <h2>為什麼國定假日要自己填？</h2>
+      <p>因為台灣的國定假日（春節、清明、端午、中秋、國慶等）每年日期不同，還有彈性放假、補班日，沒有一條固定規則。如果工具內建假日表，每年都要更新、容易過時出錯。所以這裡採「自動扣週末＋你手動填國定假日天數」的方式，最準也最不會錯——你只要查一下那段期間有幾天紅字假日，填進去即可。</p>
+      <h2>常見問題</h2>
+      <h3>補班日（上班的週六）怎麼算？</h3>
+      <p>本工具一律把週六、週日當休息日扣除。若遇到補班日（需上班的週六），可在國定假日欄填負數來抵銷，或自行加回。</p>
+      <h3>可以算未來的日期嗎？</h3>
+      <p>可以，起訖日期填未來日期即可，常用於估算交期或專案排程。</p>
+    </div>
+    <nav class="related"><h2>其他常用工具</h2><div class="rgrid">
+      <a class="rcard" href="../age/index.html"><b>年齡 / 天數計算</b><span>足歲與倒數</span></a>
+      <a class="rcard" href="../roc-date/index.html"><b>民國 / 西元轉換</b><span>生肖星座</span></a>
+      <a class="rcard" href="../salary/index.html"><b>薪資換算</b><span>時薪月薪</span></a>
+    </div></nav>
+  </article>
+</main>
+<footer class="wrap">
+  <div class="fabout"><div class="fname">生活計算所<span>Life Calc</span></div><p>專為台灣人打造的免費線上計算工具，集合房貸、台電電費、薪資與加班費、股票成本、健康數據等日常計算。介面乾淨、手機好用，所有運算在你的瀏覽器本機完成，不收集任何資料。</p></div>
+  <nav class="footlinks"><a href="../mortgage/index.html">房貸試算</a><a href="../electricity/index.html">台電電費</a><a href="../stock-fee/index.html">股票成本</a><a href="../salary/index.html">薪資換算</a><a href="../overtime/index.html">加班費</a><a href="../health/index.html">BMI／熱量</a><a href="../unit-converter/index.html">單位換算</a><a href="../compound-interest/index.html">複利計算</a><a href="../age/index.html">年齡計算</a><a href="../roc-date/index.html">民國轉換</a></nav>
+  <div class="fnav"><a href="../index.html">所有工具</a><a href="../guide/index.html">教學文章</a><a href="../about/index.html">關於</a><a href="../privacy/index.html">隱私權政策</a></div>
+  <b>生活計算所</b> · 免費工具 · 本機運算，不收集資料
+</footer>
+<script src="../calc.js"></script>
+</body>
+</html>

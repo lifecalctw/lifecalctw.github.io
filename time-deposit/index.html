@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>定存利息計算機｜本金、利率、期間算到期本利和 — 生活計算所</title>
+<meta name="description" content="免費定存利息計算機：輸入本金、年利率與存款期間，算出到期本利和、總利息，以及存本取息每月可領的利息。整存整付、存本取息一次看。">
+<link rel="canonical" href="https://lifecalc.tw/time-deposit/">
+<meta property="og:title" content="定存利息計算機｜到期本利和與每月利息"><meta property="og:description" content="算定存到期本利和、總利息與每月可領利息。">
+<meta property="og:type" content="website"><meta property="og:url" content="https://lifecalc.tw/time-deposit/"><meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="生活計算所"><meta property="og:image" content="https://lifecalc.tw/og-image.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"定存利息計算機","url":"https://lifecalc.tw/time-deposit/","applicationCategory":"FinanceApplication","operatingSystem":"Web","inLanguage":"zh-Hant","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://lifecalc.tw/"},{"@type":"ListItem","position":2,"name":"定存利息計算機","item":"https://lifecalc.tw/time-deposit/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"定存利息怎麼算？","acceptedAnswer":{"@type":"Answer","text":"整存整付以單利估算：利息 = 本金 × 年利率 × 存款年數，到期領回本金加利息。例如 10 萬、年利率 1.6%、存一年，利息約 1,600 元。"}},
+{"@type":"Question","name":"整存整付和存本取息差在哪？","acceptedAnswer":{"@type":"Answer","text":"整存整付是到期一次領回本利和；存本取息是本金不動、每月領利息，每月利息約為本金 × 年利率 ÷ 12。"}},
+{"@type":"Question","name":"固定利率和機動利率哪個好？","acceptedAnswer":{"@type":"Answer","text":"預期升息選機動、預期降息選固定。實際利率以各銀行牌告為準，本工具用你輸入的利率估算。"}}]}
+</script>
+</head>
+<body>
+<header><div class="wrap bar"><a class="logo" href="../index.html">生活計算所<span class="en">Life&nbsp;Calc</span></a><div class="spacer"></div><a class="ghost" href="../index.html">所有工具</a></div></header>
+<main class="wrap">
+  <nav class="crumb"><a href="../index.html">首頁</a><span>›</span>定存利息計算機</nav>
+  <article class="tool">
+    <div class="head"><svg class="ic ico" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg><h1 class="title">定存利息計算機</h1></div>
+    <p class="lead">輸入本金、年利率與存款期間，算出到期本利和與每月可領利息。</p>
+    <div class="panel">
+      <div class="field"><label>本金（元）</label><input type="number" class="num" id="fd_p" value="100000" oninput="calcFD()"></div>
+      <div class="row">
+        <div class="field"><label>年利率（%）</label><input type="number" class="num" id="fd_rate" value="1.6" step="0.01" oninput="calcFD()"></div>
+        <div class="field"><label>存款期間（月）</label><input type="number" class="num" id="fd_mon" value="12" oninput="calcFD()"></div>
+      </div>
+    </div>
+    <div id="fd_out"></div>
+    <div class="note">以單利估算（台灣定存常見計法）。實際利率、計息方式與稅負以各銀行牌告與規定為準。</div>
+    <div class="content">
+      <h2>定存利息怎麼算？</h2>
+      <p>定存最常見的「整存整付」是用單利估算：利息 = 本金 × 年利率 × 存款年數，到期時一次領回「本金 + 利息」。例如本金 10 萬、年利率 1.6%、存一年，利息約 1,600 元，到期領回約 101,600 元。本工具會幫你算出到期本利和與總利息，也會算「存本取息」每月可領多少利息（本金不動、按月領息）。</p>
+      <h2>整存整付、存本取息、零存整付差在哪？</h2>
+      <p>定存有幾種型態：「整存整付」一次存入、到期連本帶利領回，適合放著生利息；「存本取息」一次存入、本金不動、每月領利息，適合想要月現金流的人；「零存整付」則是每月固定存一筆、到期一次領回，類似強迫儲蓄。三者本金與領取方式不同，本工具以最常見的整存整付（與存本取息月領）為主。延伸閱讀：<a href="../guide/time-deposit-interest/index.html">定存利息怎麼算？三種定存型態</a></p>
+      <h2>常見問題</h2>
+      <h3>利息要扣稅嗎？</h3>
+      <p>利息屬於利息所得，可能涉及二代健保補充保費與所得稅，門檻與規定以稅務法令為準，本工具未扣除稅費。</p>
+      <h3>一年期以上利率不同嗎？</h3>
+      <p>通常存越久利率略高，且一年以上可選固定或機動利率，請以銀行牌告填入對應利率。</p>
+    </div>
+    <nav class="related"><h2>其他常用工具</h2><div class="rgrid">
+      <a class="rcard" href="../compound-interest/index.html"><b>複利計算</b><span>長期投資滾大</span></a>
+      <a class="rcard" href="../mortgage/index.html"><b>房貸試算</b><span>每月還款與利息</span></a>
+      <a class="rcard" href="../stock-fee/index.html"><b>股票交易成本</b><span>手續費與證交稅</span></a>
+    </div></nav>
+  </article>
+</main>
+<footer class="wrap">
+  <div class="fabout"><div class="fname">生活計算所<span>Life Calc</span></div><p>專為台灣人打造的免費線上計算工具，集合房貸、台電電費、薪資與加班費、股票成本、健康數據等日常計算。介面乾淨、手機好用，所有運算在你的瀏覽器本機完成，不收集任何資料。</p></div>
+  <nav class="footlinks"><a href="../mortgage/index.html">房貸試算</a><a href="../electricity/index.html">台電電費</a><a href="../stock-fee/index.html">股票成本</a><a href="../salary/index.html">薪資換算</a><a href="../overtime/index.html">加班費</a><a href="../health/index.html">BMI／熱量</a><a href="../unit-converter/index.html">單位換算</a><a href="../compound-interest/index.html">複利計算</a><a href="../age/index.html">年齡計算</a><a href="../roc-date/index.html">民國轉換</a></nav>
+  <div class="fnav"><a href="../index.html">所有工具</a><a href="../guide/index.html">教學文章</a><a href="../about/index.html">關於</a><a href="../privacy/index.html">隱私權政策</a></div>
+  <b>生活計算所</b> · 免費工具 · 本機運算，不收集資料
+</footer>
+<script src="../calc.js"></script>
+</body>
+</html>

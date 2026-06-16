@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>薪資換算｜時薪、日薪、月薪、年薪互換計算機 — 生活計算所</title>
+<meta name="description" content="薪資換算工具：輸入月薪、時薪、日薪或年薪，自動換算其他薪資型態，可自訂每日工時與每週工作天。求職比薪、接案報價必備。">
+<link rel="canonical" href="https://lifecalc.tw/salary/">
+<meta property="og:title" content="薪資換算｜時薪、日薪、月薪、年薪互換">
+<meta property="og:description" content="月薪、時薪、日薪、年薪一次互換，可自訂工時。">
+<meta property="og:type" content="website"><meta property="og:url" content="https://lifecalc.tw/salary/"><meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="生活計算所">
+<meta property="og:image" content="https://lifecalc.tw/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"薪資換算","url":"https://lifecalc.tw/salary/","applicationCategory":"FinanceApplication","operatingSystem":"Web","inLanguage":"zh-Hant","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://lifecalc.tw/"},{"@type":"ListItem","position":2,"name":"薪資換算","item":"https://lifecalc.tw/salary/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"月薪怎麼換算成時薪？","acceptedAnswer":{"@type":"Answer","text":"先估每月工時（每週工作天 × 4.345 週 × 每日工時），再用月薪除以每月工時，即為時薪。"}},
+{"@type":"Question","name":"年薪是月薪乘以 12 還是 13、14？","acceptedAnswer":{"@type":"Answer","text":"本工具以月薪 × 12 計算；若公司有年終或保證年薪，實際年所得會更高，可自行加上獎金月數。"}},
+{"@type":"Question","name":"換算結果為什麼和我認知不同？","acceptedAnswer":{"@type":"Answer","text":"時薪、日薪會隨你設定的每日工時與每週工作天而變動，調整這兩個欄位即可符合你的情況。"}}]}
+</script>
+</head>
+<body>
+<header><div class="wrap bar"><a class="logo" href="../index.html">生活計算所<span class="en">Life&nbsp;Calc</span></a><div class="spacer"></div><a class="ghost" href="../index.html">所有工具</a></div></header>
+<main class="wrap">
+  <nav class="crumb"><a href="../index.html">首頁</a><span>›</span>薪資換算</nav>
+  <article class="tool">
+    <div class="head"><svg class="ic ico" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10h18"/><path d="M16 14.5h2.5"/></svg><h1 class="title">薪資換算</h1></div>
+    <p class="lead">時薪、日薪、月薪、年薪互相換算。</p>
+    <div class="panel">
+      <div class="field"><label>我輸入的是</label><div class="seg" id="sal_base"><button class="on" data-v="month" onclick="pick(this,'sal_base');calcSal()">月薪</button><button data-v="hour" onclick="pick(this,'sal_base');calcSal()">時薪</button><button data-v="day" onclick="pick(this,'sal_base');calcSal()">日薪</button><button data-v="year" onclick="pick(this,'sal_base');calcSal()">年薪</button></div></div>
+      <div class="field"><label>金額（元）</label><input type="number" class="num" id="sal_val" value="40000" oninput="calcSal()"></div>
+      <div class="row"><div class="field"><label>每日工時（小時）</label><input type="number" class="num" id="sal_hpd" value="8" oninput="calcSal()"></div>
+        <div class="field"><label>每週工作天</label><input type="number" class="num" id="sal_dpw" value="5" oninput="calcSal()"></div></div>
+    </div>
+    <div id="sal_out"></div>
+    <div class="note">換算以「每月平均 ≈ 每週工作天 × 4.345 週」估算，僅供參考；實際依勞動契約與計薪方式為準。</div>
+
+    <div class="content">
+      <h2>薪資怎麼換算才準？</h2>
+      <p>薪資換算的關鍵在「每月工時」怎麼抓。本工具用「每週工作天 × 4.345 週 × 每日工時」估出每月平均工時，再回推時薪、日薪、週薪與年薪。所以只要把每日工時（例如 8 小時）和每週工作天（例如 5 天）設定成你的實際狀況，換算結果就會貼近真實。求職比較不同工作、接案報價、或想知道時薪到底值多少，都很實用。</p>
+      <h2>常見月薪換算時薪、日薪、年薪對照</h2>
+      <div class="tablewrap"><table>
+        <tr><th>月薪</th><th>時薪</th><th>日薪</th><th>年薪</th></tr>
+        <tr><td>$30,000</td><td>約 $173</td><td>約 $1,385</td><td>$360,000</td></tr>
+        <tr><td>$40,000</td><td>約 $231</td><td>約 $1,846</td><td>$480,000</td></tr>
+        <tr><td>$50,000</td><td>約 $288</td><td>約 $2,308</td><td>$600,000</td></tr>
+        <tr><td>$60,000</td><td>約 $346</td><td>約 $2,769</td><td>$720,000</td></tr>
+      </table></div>
+      <p>以每天 8 小時、每週 5 天（每月約 173 小時）估算；年薪以月薪 × 12 計，未含年終或獎金。工時不同，時薪與日薪也會不同，用上方工具可自訂。</p>
+      <h2>比薪水時要注意什麼？</h2>
+      <p>單看月薪不夠，要把工時一起看：同樣月薪 40,000，一週上 5 天和一週上 6 天，時薪差很多。另外年薪要留意有沒有含年終、三節獎金，這些會讓實際年所得和「月薪 × 12」差一截。換算只是第一步，搭配記帳掌握實際收支，才知道錢真正怎麼流動。</p>
+      <h2>常見問題</h2>
+      <h3>有算勞健保和稅嗎？</h3>
+      <p>沒有，這裡換算的是「帳面薪資」。扣除勞健保與所得稅後的實領金額會較低。</p>
+      <h3>時薪族可以用嗎？</h3>
+      <p>可以，選「時薪」輸入你的時薪，就能反推月薪、年薪，方便和月薪職缺比較。</p>
+      <h3>會儲存資料嗎？</h3>
+      <p>不會，全部在瀏覽器本機計算，不上傳也不儲存。</p>
+    </div>
+
+    <nav class="related"><h2>其他常用工具</h2><div class="rgrid">
+      <a class="rcard" href="../overtime/index.html"><b>加班費試算</b><span>依勞基法計算</span></a>
+      <a class="rcard" href="../compound-interest/index.html"><b>複利計算</b><span>薪水滾成資產</span></a>
+      <a class="rcard" href="../mortgage/index.html"><b>房貸試算</b><span>每月還款負擔</span></a>
+    </div></nav>
+  </article>
+</main>
+<footer class="wrap">
+  <div class="fabout">
+    <div class="fname">生活計算所<span>Life Calc</span></div>
+    <p>專為台灣人打造的免費線上計算工具，集合房貸、台電電費、薪資與加班費、股票成本、健康數據等日常計算。介面乾淨、手機好用，所有運算在你的瀏覽器本機完成，不收集任何資料。</p>
+  </div>
+  <nav class="footlinks"><a href="../mortgage/index.html">房貸試算</a><a href="../electricity/index.html">台電電費</a><a href="../stock-fee/index.html">股票成本</a><a href="../salary/index.html">薪資換算</a><a href="../overtime/index.html">加班費</a><a href="../health/index.html">BMI／熱量</a><a href="../unit-converter/index.html">單位換算</a><a href="../compound-interest/index.html">複利計算</a><a href="../age/index.html">年齡計算</a><a href="../roc-date/index.html">民國轉換</a></nav>
+  <div class="fnav"><a href="../index.html">所有工具</a><a href="../about/index.html">關於</a><a href="../privacy/index.html">隱私權政策</a></div>
+  <b>生活計算所</b> · 免費工具 · 本機運算，不收集資料
+</footer>
+<script src="../calc.js"></script>
+</body>
+</html>

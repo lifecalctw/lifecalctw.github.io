@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>複利計算機｜定期定額投資複利試算 — 生活計算所</title>
+<meta name="description" content="複利計算機：輸入起始本金、每年再投入、年報酬率與年數，算出未來總資產與複利獲利，並附逐年成長表。看懂時間與複利的威力。">
+<link rel="canonical" href="https://lifecalc.tw/compound-interest/">
+<meta property="og:title" content="複利計算機｜定期定額投資複利試算">
+<meta property="og:description" content="本金加每年投入，看複利長期滾多大，附逐年成長表。">
+<meta property="og:type" content="website"><meta property="og:url" content="https://lifecalc.tw/compound-interest/"><meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="生活計算所">
+<meta property="og:image" content="https://lifecalc.tw/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"複利計算","url":"https://lifecalc.tw/compound-interest/","applicationCategory":"FinanceApplication","operatingSystem":"Web","inLanguage":"zh-Hant","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://lifecalc.tw/"},{"@type":"ListItem","position":2,"name":"複利計算","item":"https://lifecalc.tw/compound-interest/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"複利是什麼？","acceptedAnswer":{"@type":"Answer","text":"複利是把每期賺到的利息或報酬併入本金，下一期再以更大的本金計算報酬，形成利滾利的累積效果。"}},
+{"@type":"Question","name":"定期定額和複利有關嗎？","acceptedAnswer":{"@type":"Answer","text":"有。每年再投入一筆錢，搭配複利累積，長期下來成長會比單筆投入更可觀，本工具可同時試算。"}},
+{"@type":"Question","name":"報酬率要填多少？","acceptedAnswer":{"@type":"Answer","text":"報酬率是假設值，可參考你投資標的的歷史平均；投資有風險、不保證獲利，建議用不同數字多試幾種情境。"}}]}
+</script>
+</head>
+<body>
+<header><div class="wrap bar"><a class="logo" href="../index.html">生活計算所<span class="en">Life&nbsp;Calc</span></a><div class="spacer"></div><a class="ghost" href="../index.html">所有工具</a></div></header>
+<main class="wrap">
+  <nav class="crumb"><a href="../index.html">首頁</a><span>›</span>複利計算</nav>
+  <article class="tool">
+    <div class="head"><svg class="ic ico" viewBox="0 0 24 24"><path d="M4 5v15h16"/><path d="M7.5 16l3.5-4 3 2 5.5-7"/></svg><h1 class="title">複利計算</h1></div>
+    <p class="lead">看你的本金加上每年投入，在複利之下能滾到多大。</p>
+    <div class="panel">
+      <div class="row"><div class="field"><label>起始本金（元）</label><input type="number" class="num" id="c_p" value="100000" oninput="calcC()"></div>
+        <div class="field"><label>每年再投入（元）</label><input type="number" class="num" id="c_add" value="120000" oninput="calcC()"></div></div>
+      <div class="row"><div class="field"><label>年報酬率（%）</label><input type="number" class="num" id="c_rate" value="6" step="0.1" oninput="calcC()"></div>
+        <div class="field"><label>投資年數</label><input type="number" class="num" id="c_yr" value="20" oninput="calcC()"></div></div>
+    </div>
+    <div id="c_out"></div>
+    <div class="note">報酬率為假設值，實際投資有風險、不保證獲利，此工具僅作試算用途。</div>
+
+    <div class="content">
+      <h2>複利為什麼這麼強？</h2>
+      <p>複利就是「利滾利」：每年賺到的報酬會併入本金，隔年用更大的本金繼續滾。時間拉長後，成長不是直線而是越來越陡的曲線——這也是愛因斯坦被傳「複利是世界第八大奇蹟」的原因。本工具讓你輸入起始本金、每年再投入、年報酬率與年數，立刻看到最後的總資產，以及其中有多少是「複利獲利」、多少是你自己投入的本金。</p>
+      <h2>定期定額的力量</h2>
+      <p>真正讓資產長大的，往往不是一次性大筆投入，而是「持續投入＋複利＋時間」。把每年再投入填上一個你做得到的金額，搭配逐年成長表，你會發現越到後面、每年增加的金額越驚人。建議多試幾組數字：把年數從 10 年改成 30 年，或報酬率上下調整，感受時間與報酬率的差異有多大。</p>
+      <h2>常見問題</h2>
+      <h3>這是月複利還是年複利？</h3>
+      <p>本工具以年複利計算，每年結算一次並加入再投入金額。</p>
+      <h3>有考慮通膨和稅嗎？</h3>
+      <p>沒有，顯示為名目金額。實際購買力會受通膨影響，獲利也可能涉及稅負。</p>
+      <h3>能保證這個報酬嗎？</h3>
+      <p>不能。報酬率是你假設的數字，投資有風險、不保證獲利，結果僅供試算參考。</p>
+    </div>
+
+    <nav class="related"><h2>其他常用工具</h2><div class="rgrid">
+      <a class="rcard" href="../stock-fee/index.html"><b>股票交易成本</b><span>手續費與證交稅</span></a>
+      <a class="rcard" href="../salary/index.html"><b>薪資換算</b><span>規劃投入金額</span></a>
+      <a class="rcard" href="../mortgage/index.html"><b>房貸試算</b><span>每月還款負擔</span></a>
+    </div></nav>
+  </article>
+</main>
+<footer class="wrap">
+  <div class="fabout">
+    <div class="fname">生活計算所<span>Life Calc</span></div>
+    <p>專為台灣人打造的免費線上計算工具，集合房貸、台電電費、薪資與加班費、股票成本、健康數據等日常計算。介面乾淨、手機好用，所有運算在你的瀏覽器本機完成，不收集任何資料。</p>
+  </div>
+  <nav class="footlinks"><a href="../mortgage/index.html">房貸試算</a><a href="../electricity/index.html">台電電費</a><a href="../stock-fee/index.html">股票成本</a><a href="../salary/index.html">薪資換算</a><a href="../overtime/index.html">加班費</a><a href="../health/index.html">BMI／熱量</a><a href="../unit-converter/index.html">單位換算</a><a href="../compound-interest/index.html">複利計算</a><a href="../age/index.html">年齡計算</a><a href="../roc-date/index.html">民國轉換</a></nav>
+  <div class="fnav"><a href="../index.html">所有工具</a><a href="../about/index.html">關於</a><a href="../privacy/index.html">隱私權政策</a></div>
+  <b>生活計算所</b> · 免費工具 · 本機運算，不收集資料
+</footer>
+<script src="../calc.js"></script>
+</body>
+</html>

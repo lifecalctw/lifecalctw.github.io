@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>停車費計算機｜停車時數、費率、免費時數算停車費 — 生活計算所</title>
+<meta name="description" content="免費停車費計算機：輸入停車時數、每小時費率、免費時數與單日上限，立即算出應付停車費。逛街、看病、出遊停車前抓預算好用，免註冊。">
+<link rel="canonical" href="https://lifecalc.tw/parking/">
+<meta property="og:title" content="停車費計算機｜停車時數、費率算停車費"><meta property="og:description" content="輸入時數、費率、免費時數與單日上限，算應付停車費。">
+<meta property="og:type" content="website"><meta property="og:url" content="https://lifecalc.tw/parking/"><meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="生活計算所"><meta property="og:image" content="https://lifecalc.tw/og-image.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"停車費計算機","url":"https://lifecalc.tw/parking/","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","inLanguage":"zh-Hant","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://lifecalc.tw/"},{"@type":"ListItem","position":2,"name":"停車費計算機","item":"https://lifecalc.tw/parking/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"停車費怎麼算？","acceptedAnswer":{"@type":"Answer","text":"停車費 = 計費時數 × 每小時費率。多數停車場以每小時計費、不足一小時以一小時計，扣掉免費時數後，超過的時間無條件進位到整數小時收費。"}},
+{"@type":"Question","name":"什麼是單日上限？","acceptedAnswer":{"@type":"Answer","text":"許多停車場有「單日最高收費」，停再久當天也只收到上限金額。本工具填入上限後，會自動以上限為準。"}},
+{"@type":"Question","name":"不足一小時怎麼算？","acceptedAnswer":{"@type":"Answer","text":"多數停車場不足一小時以一小時計，本工具採無條件進位估算；少數以每 30 分鐘或每分鐘計費，請以現場公告為準。"}}]}
+</script>
+</head>
+<body>
+<header><div class="wrap bar"><a class="logo" href="../index.html">生活計算所<span class="en">Life&nbsp;Calc</span></a><div class="spacer"></div><a class="ghost" href="../index.html">所有工具</a></div></header>
+<main class="wrap">
+  <nav class="crumb"><a href="../index.html">首頁</a><span>›</span>停車費計算機</nav>
+  <article class="tool">
+    <div class="head"><svg class="ic ico" viewBox="0 0 24 24"><path d="M5 16l1.6-5.2A2 2 0 0 1 8.5 9.4h7a2 2 0 0 1 1.9 1.4L19 16"/><rect x="3.5" y="16" width="17" height="4" rx="1.5"/><circle cx="7.5" cy="20" r="1.2"/><circle cx="16.5" cy="20" r="1.2"/></svg><h1 class="title">停車費計算機</h1></div>
+    <p class="lead">輸入停車時數與費率，算出應付停車費，可設免費時數與單日上限。</p>
+    <div class="panel">
+      <div class="row">
+        <div class="field"><label>停車時數（小時，可填小數）</label><input type="number" class="num" id="pk_h" value="3.5" step="0.5" oninput="calcPark()"></div>
+        <div class="field"><label>每小時費率（元）</label><input type="number" class="num" id="pk_rate" value="30" oninput="calcPark()"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>免費時數（小時，可留 0）</label><input type="number" class="num" id="pk_free" value="0" step="0.5" oninput="calcPark()"></div>
+        <div class="field"><label>單日上限（元，0＝無上限）</label><input type="number" class="num" id="pk_cap" value="0" oninput="calcPark()"></div>
+      </div>
+    </div>
+    <div id="pk_out"></div>
+    <div class="note">多數停車場「不足一小時以一小時計」，本工具採無條件進位估算；實際計費方式（每小時／每半小時／每分鐘）與費率以現場公告為準。</div>
+    <div class="content">
+      <h2>停車費怎麼算？</h2>
+      <p>停車費的算法是「計費時數 × 每小時費率」。大多數停車場以小時計費，而且「不足一小時以一小時計」——例如停 2 小時 10 分鐘，會算 3 小時。如果有免費時數（像賣場消費折抵、前 30 分鐘免費），先扣掉再計費。本工具會幫你把這些都算進去，停車前先估個大概，或對帳時檢查有沒有被多收。</p>
+      <h2>停車省錢的小提醒</h2>
+      <p>幾個常見的省錢點：很多百貨、賣場消費可折抵停車費，記得索取折抵；不少停車場有「單日上限」，如果要停很久，找有上限的反而划算；路邊停車格與停車場費率差很多，短停可找路邊、久停找有上限的停車場。把這些條件填進工具比一比，就知道怎麼停最省。</p>
+      <h2>常見問題</h2>
+      <h3>每 30 分鐘計費的怎麼算？</h3>
+      <p>本工具以「每小時」為單位估算。若停車場是每 30 分鐘計費，可把費率與時數換算成等效的小時費率再計算。</p>
+      <h3>機車停車費也能算嗎？</h3>
+      <p>可以，輸入機車停車場的費率即可，算法相同。</p>
+    </div>
+    <nav class="related"><h2>其他常用工具</h2><div class="rgrid">
+      <a class="rcard" href="../fuel-cost/index.html"><b>油錢計算機</b><span>距離油耗油價</span></a>
+      <a class="rcard" href="../discount/index.html"><b>折扣計算機</b><span>打折與均價</span></a>
+      <a class="rcard" href="../electricity/index.html"><b>台電電費試算</b><span>夏月累進級距</span></a>
+    </div></nav>
+  </article>
+</main>
+<footer class="wrap">
+  <div class="fabout"><div class="fname">生活計算所<span>Life Calc</span></div><p>專為台灣人打造的免費線上計算工具，集合房貸、台電電費、薪資與加班費、股票成本、健康數據等日常計算。介面乾淨、手機好用，所有運算在你的瀏覽器本機完成，不收集任何資料。</p></div>
+  <nav class="footlinks"><a href="../mortgage/index.html">房貸試算</a><a href="../electricity/index.html">台電電費</a><a href="../stock-fee/index.html">股票成本</a><a href="../salary/index.html">薪資換算</a><a href="../overtime/index.html">加班費</a><a href="../health/index.html">BMI／熱量</a><a href="../unit-converter/index.html">單位換算</a><a href="../compound-interest/index.html">複利計算</a><a href="../age/index.html">年齡計算</a><a href="../roc-date/index.html">民國轉換</a></nav>
+  <div class="fnav"><a href="../index.html">所有工具</a><a href="../guide/index.html">教學文章</a><a href="../about/index.html">關於</a><a href="../privacy/index.html">隱私權政策</a></div>
+  <b>生活計算所</b> · 免費工具 · 本機運算，不收集資料
+</footer>
+<script src="../calc.js"></script>
+</body>
+</html>

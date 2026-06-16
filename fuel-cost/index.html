@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>油錢計算機｜行駛距離、油耗、油價算這趟多少油錢 — 生活計算所</title>
+<meta name="description" content="免費油錢計算機：輸入行駛距離、油耗（每公升可跑幾公里）與油價，立即算出這趟油錢、耗油量與每公里成本。開車、機車通勤、旅遊抓預算必備。">
+<link rel="canonical" href="https://lifecalc.tw/fuel-cost/">
+<meta property="og:title" content="油錢計算機｜距離、油耗、油價試算"><meta property="og:description" content="算出這趟油錢、耗油量與每公里成本。">
+<meta property="og:type" content="website"><meta property="og:url" content="https://lifecalc.tw/fuel-cost/"><meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="生活計算所"><meta property="og:image" content="https://lifecalc.tw/og-image.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"油錢計算機","url":"https://lifecalc.tw/fuel-cost/","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","inLanguage":"zh-Hant","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://lifecalc.tw/"},{"@type":"ListItem","position":2,"name":"油錢計算機","item":"https://lifecalc.tw/fuel-cost/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"油錢怎麼算？","acceptedAnswer":{"@type":"Answer","text":"油錢 = 行駛距離 ÷ 油耗（每公升可跑幾公里）× 油價。先算出耗油量（公升），再乘上每公升油價即為油錢。"}},
+{"@type":"Question","name":"油耗要怎麼知道？","acceptedAnswer":{"@type":"Answer","text":"可參考車輛的平均油耗（km/L），或用「加滿油跑的公里數 ÷ 加的公升數」自行計算實際油耗。"}},
+{"@type":"Question","name":"機車也能用嗎？","acceptedAnswer":{"@type":"Answer","text":"可以，輸入機車的油耗與油價即可，算法完全相同。"}}]}
+</script>
+</head>
+<body>
+<header><div class="wrap bar"><a class="logo" href="../index.html">生活計算所<span class="en">Life&nbsp;Calc</span></a><div class="spacer"></div><a class="ghost" href="../index.html">所有工具</a></div></header>
+<main class="wrap">
+  <nav class="crumb"><a href="../index.html">首頁</a><span>›</span>油錢計算機</nav>
+  <article class="tool">
+    <div class="head"><svg class="ic ico" viewBox="0 0 24 24"><path d="M6 21V5a1.5 1.5 0 0 1 1.5-1.5h5A1.5 1.5 0 0 1 14 5v16"/><path d="M4 21h12"/><path d="M7.5 9h5"/><path d="M14 8.5l2.5 2.5V17a1.5 1.5 0 0 0 3 0V9l-2.5-2.5"/></svg><h1 class="title">油錢計算機</h1></div>
+    <p class="lead">輸入距離、油耗與油價，算出這趟油錢、耗油量與每公里成本。</p>
+    <div class="panel">
+      <div class="field"><label>行駛距離（公里）</label><input type="number" class="num" id="fuel_dist" value="100" oninput="calcFuel()"></div>
+      <div class="row">
+        <div class="field"><label>油耗（每公升可跑幾公里 km/L）</label><input type="number" class="num" id="fuel_eff" value="15" step="0.1" oninput="calcFuel()"></div>
+        <div class="field"><label>油價（元/公升）</label><input type="number" class="num" id="fuel_price" value="30" step="0.1" oninput="calcFuel()"></div>
+      </div>
+    </div>
+    <div id="fuel_out"></div>
+    <div class="content">
+      <h2>油錢怎麼算？</h2>
+      <p>油錢的算法很單純：先算「這趟用了多少油」，再乘上油價。也就是「行駛距離 ÷ 油耗 = 耗油量（公升）」，再「耗油量 × 每公升油價 = 油錢」。例如跑 100 公里、油耗 15 km/L、油價 30 元，耗油約 6.7 公升，油錢約 200 元。本工具還會幫你算「每公里油錢」，方便估算通勤或長途旅遊的成本。</p>
+      <h2>怎麼抓自己車的油耗？</h2>
+      <p>原廠標示的油耗是參考值，實際會因路況、載重、開冷氣、駕駛習慣而不同。最準的方式是自己測：把油加滿、歸零里程，等下次加油時，用「這次跑的公里數 ÷ 這次加的公升數」，就是你的實際油耗。市區走走停停油耗較差，高速公路通常較省。</p>
+      <h2>常見問題</h2>
+      <h3>油價去哪裡查？</h3>
+      <p>可參考中油或台塑的牌價，油價會隨國際油價每週調整，填入當下油價即可。</p>
+      <h3>電動車可以算嗎？</h3>
+      <p>這個工具是算汽油／柴油車。電動車要改用「電耗（度/公里）× 電價」計算，與油錢算法不同。</p>
+    </div>
+    <nav class="related"><h2>其他常用工具</h2><div class="rgrid">
+      <a class="rcard" href="../electricity/index.html"><b>台電電費試算</b><span>夏月累進級距</span></a>
+      <a class="rcard" href="../discount/index.html"><b>折扣計算機</b><span>打折與均價</span></a>
+      <a class="rcard" href="../unit-converter/index.html"><b>單位換算</b><span>長度重量</span></a>
+    </div></nav>
+  </article>
+</main>
+<footer class="wrap">
+  <div class="fabout"><div class="fname">生活計算所<span>Life Calc</span></div><p>專為台灣人打造的免費線上計算工具，集合房貸、台電電費、薪資與加班費、股票成本、健康數據等日常計算。介面乾淨、手機好用，所有運算在你的瀏覽器本機完成，不收集任何資料。</p></div>
+  <nav class="footlinks"><a href="../mortgage/index.html">房貸試算</a><a href="../electricity/index.html">台電電費</a><a href="../stock-fee/index.html">股票成本</a><a href="../salary/index.html">薪資換算</a><a href="../overtime/index.html">加班費</a><a href="../health/index.html">BMI／熱量</a><a href="../unit-converter/index.html">單位換算</a><a href="../compound-interest/index.html">複利計算</a><a href="../age/index.html">年齡計算</a><a href="../roc-date/index.html">民國轉換</a></nav>
+  <div class="fnav"><a href="../index.html">所有工具</a><a href="../guide/index.html">教學文章</a><a href="../about/index.html">關於</a><a href="../privacy/index.html">隱私權政策</a></div>
+  <b>生活計算所</b> · 免費工具 · 本機運算，不收集資料
+</footer>
+<script src="../calc.js"></script>
+</body>
+</html>

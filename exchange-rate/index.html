@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>匯率換算｜即時新台幣、日圓、美元線上匯率計算 — 生活計算所</title>
+<meta name="description" content="即時匯率換算工具：新台幣、日圓、美元、歐元、人民幣、韓元等常用幣別線上互換，顯示即時匯率與更新時間，旅遊換匯、海外購物必備。">
+<link rel="canonical" href="https://lifecalc.tw/exchange-rate/">
+<meta property="og:title" content="匯率換算｜即時新台幣、日圓、美元線上匯率">
+<meta property="og:description" content="台幣、日圓、美元、歐元等常用幣別即時換算，附匯率與更新時間。">
+<meta property="og:type" content="website"><meta property="og:url" content="https://lifecalc.tw/exchange-rate/"><meta property="og:locale" content="zh_TW">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"匯率換算","url":"https://lifecalc.tw/exchange-rate/","applicationCategory":"FinanceApplication","operatingSystem":"Web","inLanguage":"zh-Hant","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://lifecalc.tw/"},{"@type":"ListItem","position":2,"name":"匯率換算","item":"https://lifecalc.tw/exchange-rate/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"這裡的匯率是即時的嗎？","acceptedAnswer":{"@type":"Answer","text":"匯率取自公開的每日參考匯率資料，頁面會顯示資料更新時間。屬參考性質，與銀行實際成交匯率會有買賣價差。"}},
+{"@type":"Question","name":"換匯時為什麼和銀行牌告不同？","acceptedAnswer":{"@type":"Answer","text":"銀行有買入價與賣出價的價差，現金匯率與即期匯率也不同，因此實際換到的金額會和參考匯率略有差距。"}},
+{"@type":"Question","name":"支援哪些貨幣？","acceptedAnswer":{"@type":"Answer","text":"提供新台幣、美元、日圓、歐元、人民幣、港幣、韓元、英鎊、澳幣、泰銖、新加坡幣等常用幣別互換。"}}]}
+</script>
+</head>
+<body>
+<header><div class="wrap bar"><a class="logo" href="../index.html">生活計算所<span class="en">Life&nbsp;Calc</span></a><div class="spacer"></div><a class="ghost" href="../index.html">所有工具</a></div></header>
+<main class="wrap">
+  <nav class="crumb"><a href="../index.html">首頁</a><span>›</span>匯率換算</nav>
+  <article class="tool">
+    <div class="head"><svg class="ic ico" viewBox="0 0 24 24"><path d="M3 9h14l-3.5-3.5"/><path d="M21 15H7l3.5 3.5"/></svg><h1 class="title">匯率換算</h1></div>
+    <p class="lead">即時換算新台幣、日圓、美元等常用幣別，並顯示匯率與更新時間。</p>
+    <div class="panel">
+      <div class="field"><label>金額</label><input type="number" class="num" id="fx_amt" value="10000" oninput="calcFX()"></div>
+      <div class="row">
+        <div class="field"><label>從</label><select id="fx_from" onchange="calcFX()"></select></div>
+        <div class="field"><label>換成</label><select id="fx_to" onchange="calcFX()"></select></div>
+      </div>
+      <button class="applybtn" onclick="fxSwap()" style="background:var(--accent2)">⇄ 對調幣別</button>
+    </div>
+    <div id="fx_out"></div>
+    <div class="note">匯率取自每日公開參考資料，僅供參考；實際換匯以銀行買入／賣出牌告為準，會有價差。</div>
+
+    <div class="content">
+      <h2>匯率怎麼看、怎麼換算？</h2>
+      <p>匯率就是兩種貨幣之間的兌換比率。例如「1 美元 = 32 新台幣」，代表用 32 元台幣可以換 1 美元。要把一筆錢從 A 幣別換成 B 幣別，只要乘上對應匯率即可。本工具會即時抓取當日參考匯率，你輸入金額、選好「從」與「換成」的幣別，立刻算出可兌換的金額，並附上即時匯率、反向匯率與資料更新時間，下面還會一次列出這筆錢換成各種常用貨幣的結果，出國前抓預算很方便。</p>
+      <h2>為什麼跟銀行換到的不一樣？</h2>
+      <p>這裡顯示的是「參考／中間匯率」，但銀行實際換匯有買入價與賣出價的差距（價差），而且「現金匯率」通常比「即期匯率」差一些。所以實際換到的金額會和參考匯率有落差，越是冷門幣別、或換現鈔，價差通常越大。把本工具當成快速估算與比價的依據，真正換匯時再以銀行當下牌告為準。</p>
+      <h2>常見問題</h2>
+      <h3>多久更新一次？</h3>
+      <p>採用每日更新的參考匯率，頁面會顯示資料的更新時間；假日國際匯市休市時數字可能不變動。</p>
+      <h3>可以換日幣現金預算嗎？</h3>
+      <p>可以，選「從 TWD 換成 JPY」輸入台幣金額即可估算，實際以日本當地或銀行換匯為準。</p>
+      <h3>需要連網嗎？</h3>
+      <p>需要。匯率工具要連線取得即時報價，若載入失敗請重新整理或檢查網路。</p>
+    </div>
+
+    <nav class="related"><h2>其他常用工具</h2><div class="rgrid">
+      <a class="rcard" href="../stock-fee/index.html"><b>股票交易成本</b><span>手續費與證交稅</span></a>
+      <a class="rcard" href="../compound-interest/index.html"><b>複利計算</b><span>長期投資試算</span></a>
+      <a class="rcard" href="../unit-converter/index.html"><b>單位換算</b><span>長度重量換算</span></a>
+    </div></nav>
+  </article>
+</main>
+<footer class="wrap"><div class="fnav"><a href="../about/index.html">關於</a><a href="../privacy/index.html">隱私權政策</a></div><b>生活計算所</b> · 免費工具 · 本機運算，不收集資料</footer>
+<script src="../calc.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>民國西元轉換｜國曆民國年互轉、生肖星座查詢 — 生活計算所</title>
+<meta name="description" content="民國西元轉換工具：輸入國曆（西元）日期，立即換算民國年月日，並查出生肖與星座。填表格、報稅、辦證件對照年份必備。">
+<link rel="canonical" href="https://lifecalc.tw/roc-date/">
+<meta property="og:title" content="民國西元轉換｜國曆民國互轉、生肖星座">
+<meta property="og:description" content="國曆民國年互轉，附生肖與星座查詢。">
+<meta property="og:type" content="website"><meta property="og:url" content="https://lifecalc.tw/roc-date/"><meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="生活計算所">
+<meta property="og:image" content="https://lifecalc.tw/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"民國西元轉換","url":"https://lifecalc.tw/roc-date/","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","inLanguage":"zh-Hant","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://lifecalc.tw/"},{"@type":"ListItem","position":2,"name":"民國西元轉換","item":"https://lifecalc.tw/roc-date/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"民國幾年怎麼換西元？","acceptedAnswer":{"@type":"Answer","text":"西元 = 民國 + 1911。例如民國 114 年就是西元 2025 年；反過來西元減 1911 即為民國年。"}},
+{"@type":"Question","name":"生肖怎麼判斷？","acceptedAnswer":{"@type":"Answer","text":"以西元年份對應十二生肖循環查詢；嚴格來說生肖以農曆年計，跨農曆年初出生者可能略有差異。"}},
+{"@type":"Question","name":"有農曆轉換嗎？","acceptedAnswer":{"@type":"Answer","text":"農曆（陰曆）對照功能即將推出，目前提供國曆與民國互轉、生肖與星座查詢。"}}]}
+</script>
+</head>
+<body>
+<header><div class="wrap bar"><a class="logo" href="../index.html">生活計算所<span class="en">Life&nbsp;Calc</span></a><div class="spacer"></div><a class="ghost" href="../index.html">所有工具</a></div></header>
+<main class="wrap">
+  <nav class="crumb"><a href="../index.html">首頁</a><span>›</span>民國西元轉換</nav>
+  <article class="tool">
+    <div class="head"><svg class="ic ico" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="2.5"/><path d="M3.5 9.5h17M8 3.5v3M16 3.5v3"/></svg><h1 class="title">民國 / 西元轉換</h1></div>
+    <p class="lead">輸入國曆（西元）日期，換算民國年、生肖與星座。</p>
+    <div class="panel">
+      <div class="field"><label>國曆（西元）日期</label><input type="date" id="r_date" oninput="calcROC()"></div>
+    </div>
+    <div id="r_out"></div>
+    <div class="note">農曆（陰曆）對照即將推出，正在校對對照表以確保準確。</div>
+
+    <div class="content">
+      <h2>民國與西元怎麼換算？</h2>
+      <p>台灣的公文、報稅、證件、合約常用「民國年」，但手機和國外系統多半用「西元」，兩者一直換來換去很容易搞混。其實公式很簡單：西元 = 民國 + 1911。例如民國 114 年就是西元 2025 年；反過來，西元年份減 1911 就是民國年。本工具讓你直接選一個國曆日期，立刻顯示對應的民國年月日，填表時不用再心算。</p>
+      <h2>順便查生肖與星座</h2>
+      <p>除了年份換算，輸入日期後也會一併顯示生肖與星座，填寫個人資料或好奇某一天的生肖時很方便。要提醒的是，生肖嚴格上以農曆年計算，若出生在農曆年初（春節前後），生肖可能與西元年推算略有出入。完整的國曆對農曆功能正在校對對照表，確認準確後就會加上。</p>
+      <h2>常見問題</h2>
+      <h3>民國前的年份怎麼顯示？</h3>
+      <p>若西元早於 1912 年，會顯示為「民國前 N 年」。</p>
+      <h3>星座是用國曆還是農曆？</h3>
+      <p>星座一律以國曆（西元）日期判斷，本工具即依你輸入的國曆日期計算。</p>
+      <h3>農曆什麼時候會有？</h3>
+      <p>正在驗證農曆對照資料，確保每個日期都正確後會推出，避免換算錯誤。</p>
+    </div>
+
+    <nav class="related"><h2>其他常用工具</h2><div class="rgrid">
+      <a class="rcard" href="../age/index.html"><b>年齡計算</b><span>實歲與天數</span></a>
+      <a class="rcard" href="../health/index.html"><b>健康數據計算</b><span>BMI 與熱量</span></a>
+      <a class="rcard" href="../unit-converter/index.html"><b>單位換算</b><span>長度重量換算</span></a>
+    </div></nav>
+  </article>
+</main>
+<footer class="wrap">
+  <div class="fabout">
+    <div class="fname">生活計算所<span>Life Calc</span></div>
+    <p>專為台灣人打造的免費線上計算工具，集合房貸、台電電費、薪資與加班費、股票成本、健康數據等日常計算。介面乾淨、手機好用，所有運算在你的瀏覽器本機完成，不收集任何資料。</p>
+  </div>
+  <nav class="footlinks"><a href="../mortgage/index.html">房貸試算</a><a href="../electricity/index.html">台電電費</a><a href="../stock-fee/index.html">股票成本</a><a href="../salary/index.html">薪資換算</a><a href="../overtime/index.html">加班費</a><a href="../health/index.html">BMI／熱量</a><a href="../unit-converter/index.html">單位換算</a><a href="../compound-interest/index.html">複利計算</a><a href="../age/index.html">年齡計算</a><a href="../roc-date/index.html">民國轉換</a></nav>
+  <div class="fnav"><a href="../index.html">所有工具</a><a href="../about/index.html">關於</a><a href="../privacy/index.html">隱私權政策</a></div>
+  <b>生活計算所</b> · 免費工具 · 本機運算，不收集資料
+</footer>
+<script src="../calc.js"></script>
+</body>
+</html>

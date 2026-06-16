@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寶寶疫苗時程｜輸入出生日期算月齡與公費疫苗接種日 — 生活計算所</title>
+<meta name="description" content="免費寶寶疫苗時程表：輸入寶寶出生日期，算出目前月齡與週數，並依疾管署現行兒童常規疫苗時程，列出每劑公費疫苗的建議接種日期。新手爸媽必備。">
+<link rel="canonical" href="https://lifecalc.tw/baby-vaccine/">
+<meta property="og:title" content="寶寶疫苗時程｜月齡與公費疫苗接種日"><meta property="og:description" content="輸入出生日期，算月齡並列出每劑公費疫苗的建議接種日。">
+<meta property="og:type" content="website"><meta property="og:url" content="https://lifecalc.tw/baby-vaccine/"><meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="生活計算所"><meta property="og:image" content="https://lifecalc.tw/og-image.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"寶寶疫苗時程","url":"https://lifecalc.tw/baby-vaccine/","applicationCategory":"HealthApplication","operatingSystem":"Web","inLanguage":"zh-Hant","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://lifecalc.tw/"},{"@type":"ListItem","position":2,"name":"寶寶疫苗時程","item":"https://lifecalc.tw/baby-vaccine/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"寶寶出生後第一個要打的疫苗是什麼？","acceptedAnswer":{"@type":"Answer","text":"出生 24 小時內會接種 B 型肝炎疫苗第 1 劑；卡介苗（BCG）則調整為出生滿 5 個月（建議 5～8 個月）接種。"}},
+{"@type":"Question","name":"卡介苗什麼時候打？","acceptedAnswer":{"@type":"Answer","text":"卡介苗接種時程已由出生滿 24 小時後，調整為出生滿 5 個月後接種，建議時間為滿 5～8 個月。"}},
+{"@type":"Question","name":"這個時程是最新的嗎？","acceptedAnswer":{"@type":"Answer","text":"本工具依衛福部疾管署「現行兒童預防接種時程」整理，公費項目與時程可能調整，實際請以疾管署公告與兒童健康手冊為準。"}}]}
+</script>
+</head>
+<body>
+<header><div class="wrap bar"><a class="logo" href="../index.html">生活計算所<span class="en">Life&nbsp;Calc</span></a><div class="spacer"></div><a class="ghost" href="../index.html">所有工具</a></div></header>
+<main class="wrap">
+  <nav class="crumb"><a href="../index.html">首頁</a><span>›</span>寶寶疫苗時程</nav>
+  <article class="tool">
+    <div class="head"><svg class="ic ico" viewBox="0 0 24 24"><path d="M10 3h4v2.5l1.2 1.6c.6 1 .8 3 .8 5.9s-.2 4.9-.8 6.4a2 2 0 0 1-1.9 1.6h-2.6a2 2 0 0 1-1.9-1.6C8.2 17.9 8 16 8 13s.2-4.9.8-5.9L10 5.5z"/><path d="M8.6 11h6.8"/></svg><h1 class="title">寶寶疫苗時程</h1></div>
+    <p class="lead">輸入寶寶出生日期，算出月齡與週數，並列出每劑公費疫苗的建議接種日期。</p>
+    <div class="panel">
+      <div class="field"><label>寶寶出生日期</label><input type="date" id="baby_dob" oninput="calcBaby()"></div>
+    </div>
+    <div id="baby_out"></div>
+    <div class="note">疫苗時程依衛福部疾管署「<b>現行兒童預防接種時程</b>」整理，公費項目可能調整，實際請以兒童健康手冊與醫師安排為準。官方資訊：<a href="https://www.cdc.gov.tw/Category/List/IpWZqtnmkJfQPfgnaP4lnw" target="_blank" rel="noopener">疾病管制署 現行兒童預防接種時程</a>。</div>
+    <div class="content">
+      <h2>寶寶疫苗怎麼安排？</h2>
+      <p>台灣的公費疫苗大多集中在寶寶出生後的兩年內施打，依「月齡」分批進行。出生 24 小時內先打 B 型肝炎第 1 劑；滿 2 個月起進入五合一、肺炎鏈球菌等的接種高峰；卡介苗（BCG）則調整為滿 5 個月後接種。本工具會用你輸入的出生日期，把每一劑的「建議接種日期」直接算出來，並標出哪些時間已經到了，讓你不會漏打。帶寶寶去打針時，記得帶健保卡與兒童健康手冊（黃卡）。</p>
+      <h2>幾個近年的時程調整</h2>
+      <p>有兩個常被搞混的調整要注意：第一，卡介苗從「出生 24 小時後」改成「出生滿 5 個月後」才接種；第二，日本腦炎改採細胞培養活性減毒疫苗，於滿 15 個月接種第 1 劑、間隔 12 個月（滿 27 個月）接種第 2 劑。本工具已採用這些現行規定，但疫苗政策可能隨時更新，正式安排請以疾管署公告與醫師建議為準。</p>
+      <h2>常見問題</h2>
+      <h3>錯過建議時間怎麼辦？</h3>
+      <p>不需要重打，盡快補種即可，請諮詢接種院所或醫師安排補接種時程。</p>
+      <h3>自費疫苗（如輪狀病毒）有列出嗎？</h3>
+      <p>本工具以公費常規疫苗為主。輪狀病毒等自費項目可另與醫師討論安排。</p>
+    </div>
+    <nav class="related"><h2>其他常用工具</h2><div class="rgrid">
+      <a class="rcard" href="../due-date/index.html"><b>預產期計算</b><span>預產期與懷孕週數</span></a>
+      <a class="rcard" href="../ovulation/index.html"><b>排卵 / 生理期</b><span>排卵日與易孕期</span></a>
+      <a class="rcard" href="../age/index.html"><b>年齡 / 天數計算</b><span>足歲與倒數</span></a>
+    </div></nav>
+  </article>
+</main>
+<footer class="wrap">
+  <div class="fabout"><div class="fname">生活計算所<span>Life Calc</span></div><p>專為台灣人打造的免費線上計算工具，集合房貸、台電電費、薪資與加班費、股票成本、健康數據等日常計算。介面乾淨、手機好用，所有運算在你的瀏覽器本機完成，不收集任何資料。</p></div>
+  <nav class="footlinks"><a href="../mortgage/index.html">房貸試算</a><a href="../electricity/index.html">台電電費</a><a href="../stock-fee/index.html">股票成本</a><a href="../salary/index.html">薪資換算</a><a href="../overtime/index.html">加班費</a><a href="../health/index.html">BMI／熱量</a><a href="../unit-converter/index.html">單位換算</a><a href="../compound-interest/index.html">複利計算</a><a href="../age/index.html">年齡計算</a><a href="../roc-date/index.html">民國轉換</a></nav>
+  <div class="fnav"><a href="../index.html">所有工具</a><a href="../guide/index.html">教學文章</a><a href="../about/index.html">關於</a><a href="../privacy/index.html">隱私權政策</a></div>
+  <b>生活計算所</b> · 免費工具 · 本機運算，不收集資料
+</footer>
+<script src="../calc.js"></script>
+</body>
+</html>

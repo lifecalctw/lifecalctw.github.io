@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>加班費計算｜勞基法平日、休息日、國定假日加班費 — 生活計算所</title>
+<meta name="description" content="加班費計算機：依勞基法第 24、39 條，計算平日、休息日、國定假日加班費，支援月薪或時薪換算，列出各時段加給明細。">
+<link rel="canonical" href="https://lifecalc.tw/overtime/">
+<meta property="og:title" content="加班費計算｜勞基法平日、休息日、國定假日">
+<meta property="og:description" content="依勞基法算平日、休息日、國定假日加班費，附時段明細。">
+<meta property="og:type" content="website"><meta property="og:url" content="https://lifecalc.tw/overtime/"><meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="生活計算所">
+<meta property="og:image" content="https://lifecalc.tw/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"加班費計算","url":"https://lifecalc.tw/overtime/","applicationCategory":"FinanceApplication","operatingSystem":"Web","inLanguage":"zh-Hant","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://lifecalc.tw/"},{"@type":"ListItem","position":2,"name":"加班費計算","item":"https://lifecalc.tw/overtime/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"平日加班費怎麼算？","acceptedAnswer":{"@type":"Answer","text":"依勞基法第 24 條，平日延長工時前 2 小時加給 1⅓ 倍、第 3 小時起加給 1⅔ 倍，以每小時工資乘上倍率計算。"}},
+{"@type":"Question","name":"月薪怎麼換算每小時工資？","acceptedAnswer":{"@type":"Answer","text":"法定以月薪除以 240（每月 30 天 × 每日 8 小時）計算每小時平日工資。"}},
+{"@type":"Question","name":"國定假日上班怎麼算？","acceptedAnswer":{"@type":"Answer","text":"國定假日出勤工資加倍，8 小時內加發 1 日工資；未滿 8 小時依勞動部見解仍可能須加發 1 日，超過 8 小時部分再依加班標準計算。"}}]}
+</script>
+</head>
+<body>
+<header><div class="wrap bar"><a class="logo" href="../index.html">生活計算所<span class="en">Life&nbsp;Calc</span></a><div class="spacer"></div><a class="ghost" href="../index.html">所有工具</a></div></header>
+<main class="wrap">
+  <nav class="crumb"><a href="../index.html">首頁</a><span>›</span>加班費計算</nav>
+  <article class="tool">
+    <div class="head"><svg class="ic ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><h1 class="title">加班費試算</h1></div>
+    <p class="lead">依勞基法第 24、39 條，計算平日、休息日、國定假日加班費。</p>
+    <div class="panel">
+      <div class="field"><label>薪資基準</label><div class="seg" id="ot_base"><button class="on" data-v="month" onclick="pick(this,'ot_base');calcOT()">用月薪</button><button data-v="hour" onclick="pick(this,'ot_base');calcOT()">用時薪</button></div></div>
+      <div class="field"><label id="ot_lbl">月薪（元）</label><input type="number" class="num" id="ot_val" value="36000" oninput="calcOT()"></div>
+      <div class="field"><label>加班日類型</label><div class="seg" id="ot_type"><button class="on" data-v="weekday" onclick="pick(this,'ot_type');calcOT()">平日</button><button data-v="rest" onclick="pick(this,'ot_type');calcOT()">休息日</button><button data-v="holiday" onclick="pick(this,'ot_type');calcOT()">國定假日</button></div></div>
+      <div class="field"><label>加班時數</label><input type="number" class="num" id="ot_hr" value="3" step="0.5" oninput="calcOT()"></div>
+    </div>
+    <div id="ot_out"></div>
+    <div class="note">月薪換算時薪以「月薪 ÷ 240」計（法定每月 30 天 × 8 小時）。此為加班「加給」金額。註：國定假日出勤即使未滿 8 小時，依勞動部見解仍可能須加發 1 日工資，本表以實際時數估算，實際發放依公司計薪規則。加班費與工時規定詳見 <a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=N0030001" target="_blank" rel="noopener">勞動基準法</a>。</div>
+
+    <div class="content">
+      <h2>勞基法加班費怎麼算？</h2>
+      <p>加班費的核心是「每小時工資 × 加成倍率」。每小時工資若用月薪換算，法定以月薪除以 240（每月 30 天 × 8 小時）。加成倍率依加班日不同：平日延長工時前 2 小時為 1⅓ 倍、第 3 小時起 1⅔ 倍；休息日前 2 小時 1⅓、第 3 到第 8 小時 1⅔、第 9 到第 12 小時 2⅔。本工具會把各時段拆開列清楚，讓你核對公司發的加班費對不對。</p>
+      <h2>加班費倍率一覽（勞基法第 24 條）</h2>
+      <div class="tablewrap"><table>
+        <tr><th>加班時段</th><th>工資加成</th></tr>
+        <tr><td>平日 前 2 小時</td><td>1⅓ 倍（約 1.34）</td></tr>
+        <tr><td>平日 第 3 小時起</td><td>1⅔ 倍（約 1.67）</td></tr>
+        <tr><td>休息日 前 2 小時</td><td>1⅓ 倍</td></tr>
+        <tr><td>休息日 第 3–8 小時</td><td>1⅔ 倍</td></tr>
+        <tr><td>休息日 第 9–12 小時</td><td>2⅔ 倍</td></tr>
+        <tr><td>國定假日 8 小時內</td><td>加倍發給（再加發 1 日工資）</td></tr>
+      </table></div>
+      <p>加班費 = 每小時工資 × 對應倍率。月薪者每小時工資以「月薪 ÷ 240」計。把時數輸入上方工具即可自動算出各時段加給。</p>
+      <h2>休息日與國定假日的差別</h2>
+      <p>「休息日」與「國定假日」在法律上不同。休息日加班按上面的倍率計算；國定假日出勤則是「工資加倍」，8 小時內加發 1 日工資，超過 8 小時的部分再按加班標準計。要注意的是，國定假日即使只上幾小時，依勞動部見解仍可能須加發 1 日工資，實務上各公司計法略有差異，本工具以實際時數估算供參考。延伸閱讀：<a href="../guide/overtime-pay/index.html">加班費怎麼算才對？一次看懂</a></p>
+      <h2>常見問題</h2>
+      <h3>我是時薪制可以用嗎？</h3>
+      <p>可以，選「用時薪」直接輸入你的時薪即可，不需換算。</p>
+      <h3>為什麼算出來和公司不同？</h3>
+      <p>可能因為月薪換算基準、是否含全勤獎金、或公司另有計薪規則。本工具提供法定標準供你對照。</p>
+      <h3>有含稅嗎？</h3>
+      <p>沒有，顯示的是加班費加給金額，實際入帳會再依扣繳規定處理。</p>
+    </div>
+
+    <nav class="related"><h2>其他常用工具</h2><div class="rgrid">
+      <a class="rcard" href="../salary/index.html"><b>薪資換算</b><span>時薪月薪互換</span></a>
+      <a class="rcard" href="../compound-interest/index.html"><b>複利計算</b><span>把加班費滾大</span></a>
+      <a class="rcard" href="../electricity/index.html"><b>台電電費試算</b><span>夏月累進級距</span></a>
+    </div></nav>
+  </article>
+</main>
+<footer class="wrap">
+  <div class="fabout">
+    <div class="fname">生活計算所<span>Life Calc</span></div>
+    <p>專為台灣人打造的免費線上計算工具，集合房貸、台電電費、薪資與加班費、股票成本、健康數據等日常計算。介面乾淨、手機好用，所有運算在你的瀏覽器本機完成，不收集任何資料。</p>
+  </div>
+  <nav class="footlinks"><a href="../mortgage/index.html">房貸試算</a><a href="../electricity/index.html">台電電費</a><a href="../stock-fee/index.html">股票成本</a><a href="../salary/index.html">薪資換算</a><a href="../overtime/index.html">加班費</a><a href="../health/index.html">BMI／熱量</a><a href="../unit-converter/index.html">單位換算</a><a href="../compound-interest/index.html">複利計算</a><a href="../age/index.html">年齡計算</a><a href="../roc-date/index.html">民國轉換</a></nav>
+  <div class="fnav"><a href="../index.html">所有工具</a><a href="../about/index.html">關於</a><a href="../privacy/index.html">隱私權政策</a></div>
+  <b>生活計算所</b> · 免費工具 · 本機運算，不收集資料
+</footer>
+<script src="../calc.js"></script>
+</body>
+</html>

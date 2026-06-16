@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>生活計算所｜台灣人的日常計算工具：房貸、電費、薪資、健康一站算</title>
+<meta name="description" content="免費好用的台灣生活計算工具：房貸試算、台電電費、股票交易成本、薪資與加班費、BMI 健康、預產期、折扣、寵物年齡、單位換算等。介面乾淨、手機好用，本機運算不收集資料。">
+<link rel="canonical" href="https://lifecalc.tw/">
+<meta property="og:title" content="生活計算所｜台灣人的日常計算工具">
+<meta property="og:description" content="房貸、電費、薪資、健康、育兒、換算一站算清楚。免費、乾淨、手機好用。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lifecalc.tw/">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="生活計算所">
+<meta property="og:image" content="https://lifecalc.tw/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1f4a3d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"生活計算所","url":"https://lifecalc.tw/","inLanguage":"zh-Hant",
+"description":"台灣人的日常計算工具：房貸、電費、薪資、健康、育兒、換算等。"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"這些計算工具要收費嗎？","acceptedAnswer":{"@type":"Answer","text":"完全免費，所有工具都可以直接使用，無需註冊或付費。"}},
+{"@type":"Question","name":"手機可以用嗎？","acceptedAnswer":{"@type":"Answer","text":"可以，網站採響應式設計，手機、平板、電腦都能順暢使用。"}},
+{"@type":"Question","name":"計算結果準確嗎？","acceptedAnswer":{"@type":"Answer","text":"採用公開的標準公式與官方費率計算，力求準確；結果僅供參考，重要決策請以銀行、官方或專業意見為準。"}}]}
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-house" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 6 13h5l-1 9 8-12h-5z"/></symbol>
+<symbol id="i-stock" viewBox="0 0 24 24"><path d="M4 16l5-5 3 3 7-8"/><path d="M15 6h4v4"/></symbol>
+<symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10h18"/><path d="M16 14.5h2.5"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+<symbol id="i-pulse" viewBox="0 0 24 24"><path d="M3 12h4l2.5-6 4 12 2.5-6H21"/></symbol>
+<symbol id="i-ruler" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="1.5"/><path d="M7.5 8v3M12 8v4M16.5 8v3"/></symbol>
+<symbol id="i-growth" viewBox="0 0 24 24"><path d="M4 5v15h16"/><path d="M7.5 16l3.5-4 3 2 5.5-7"/></symbol>
+<symbol id="i-cake" viewBox="0 0 24 24"><path d="M4.5 21h15"/><path d="M6 21v-7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v7"/><path d="M4 16.2c1.4 0 1.4-1.4 2.8-1.4s1.4 1.4 2.8 1.4 1.4-1.4 2.8-1.4 1.4 1.4 2.8 1.4 1.4-1.4 2.8-1.4"/><path d="M12 9V6.4"/></symbol>
+<symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="2.5"/><path d="M3.5 9.5h17M8 3.5v3M16 3.5v3"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 19.5 4.8 12.3a4.2 4.2 0 0 1 6-6l1.2 1.2 1.2-1.2a4.2 4.2 0 0 1 6 6z"/></symbol>
+<symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z"/></symbol>
+<symbol id="i-percent" viewBox="0 0 24 24"><circle cx="7.5" cy="7.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/><line x1="6" y1="18" x2="18" y2="6"/></symbol>
+<symbol id="i-paw" viewBox="0 0 24 24"><circle cx="6" cy="11" r="2"/><circle cx="10" cy="7.5" r="2"/><circle cx="14" cy="7.5" r="2"/><circle cx="18" cy="11" r="2"/><path d="M8 16.5a4 3.2 0 0 1 8 0a2.6 2.6 0 0 1-2.6 2.6h-2.8A2.6 2.6 0 0 1 8 16.5z"/></symbol>
+<symbol id="i-fuel" viewBox="0 0 24 24"><path d="M6 21V5a1.5 1.5 0 0 1 1.5-1.5h5A1.5 1.5 0 0 1 14 5v16"/><path d="M4 21h12"/><path d="M7.5 9h5"/><path d="M14 8.5l2.5 2.5V17a1.5 1.5 0 0 0 3 0V9l-2.5-2.5"/></symbol>
+<symbol id="i-workcal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="2.5"/><path d="M3.5 9.5h17M8 3.5v3M16 3.5v3"/><path d="M9 15.5l2 2 4-4"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v4h4"/><path d="M8.5 12.5h7M8.5 16h7"/></symbol>
+<symbol id="i-baby" viewBox="0 0 24 24"><path d="M10 3h4v2.5l1.2 1.6c.6 1 .8 3 .8 5.9s-.2 4.9-.8 6.4a2 2 0 0 1-1.9 1.6h-2.6a2 2 0 0 1-1.9-1.6C8.2 17.9 8 16 8 13s.2-4.9.8-5.9L10 5.5z"/><path d="M8.6 11h6.8"/></symbol>
+<symbol id="i-coin" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.2"/></symbol>
+</defs></svg>
+
+<header><div class="wrap bar">
+  <a class="logo" href="index.html">生活計算所<span class="en">Life&nbsp;Calc</span></a>
+  <div class="spacer"></div>
+  <a class="ghost" href="index.html">所有工具</a>
+</div></header>
+
+<main class="wrap">
+  <div class="hero">
+    <div class="kicker">乾淨 · 快速 · 不囉嗦</div>
+    <h1>台灣人的日常計算，<em>一站算清楚</em></h1>
+    <p>房貸、台電電費、股票成本、薪資加班、健康育兒與更多。介面清爽，手機也順手，算完就走。</p>
+  </div>
+
+  <h2 class="cat">理財投資 <span class="cn">Money</span></h2>
+  <div class="grid catgrid">
+    <a class="tile" href="mortgage/index.html"><svg class="ic ico"><use href="#i-house"/></svg><h3>房貸試算</h3><p>每月還款、總利息與完整攤還表</p><span class="go">開啟 →</span></a>
+    <a class="tile" href="compound-interest/index.html"><svg class="ic ico"><use href="#i-growth"/></svg><h3>複利計算</h3><p>定期投入，看本金滾多大</p><span class="go">開啟 →</span></a>
+    <a class="tile" href="stock-fee/index.html"><svg class="ic ico"><use href="#i-stock"/></svg><h3>股票交易成本</h3><p>手續費、證交稅、損益兩平價</p><span class="go">開啟 →</span></a>
+    <a class="tile" href="time-deposit/index.html"><svg class="ic ico"><use href="#i-coin"/></svg><h3>定存利息計算</h3><p>本利和、總利息與每月利息</p><span class="go">開啟 →</span></a>
+  </div>
+
+  <h2 class="cat">工作薪資 <span class="cn">Work</span></h2>
+  <div class="grid catgrid">
+    <a class="tile" href="salary/index.html"><svg class="ic ico"><use href="#i-wallet"/></svg><h3>薪資換算</h3><p>時薪、日薪、月薪、年薪互換</p><span class="go">開啟 →</span></a>
+    <a class="tile" href="overtime/index.html"><svg class="ic ico"><use href="#i-clock"/></svg><h3>加班費試算</h3><p>依勞基法：平日／休息日／國定假日</p><span class="go">開啟 →</span></a>
+  </div>
+
+  <h2 class="cat">生活理財 <span class="cn">Daily</span></h2>
+  <div class="grid catgrid">
+    <a class="tile" href="electricity/index.html"><svg class="ic ico"><use href="#i-bolt"/></svg><h3>台電電費試算</h3><p>夏月／非夏月累進，附冷氣電費估算</p><span class="go">開啟 →</span></a>
+    <a class="tile" href="discount/index.html"><svg class="ic ico"><use href="#i-percent"/></svg><h3>折扣計算機</h3><p>打折、第二件折扣、買一送一均價</p><span class="go">開啟 →</span></a>
+    <a class="tile" href="fuel-cost/index.html"><svg class="ic ico"><use href="#i-fuel"/></svg><h3>油錢計算機</h3><p>距離、油耗、油價算這趟油錢</p><span class="go">開啟 →</span></a>
+    <a class="tile" href="saving-goal/index.html"><svg class="ic ico"><use href="#i-target"/></svg><h3>存錢目標計算</h3><p>想存到 X 元，每月要存多少</p><span class="go">開啟 →</span></a>
+  </div>
+
+  <h2 class="cat">健康育兒 <span class="cn">Health</span></h2>
+  <div class="grid catgrid">
+    <a class="tile" href="health/index.html"><svg class="ic ico"><use href="#i-pulse"/></svg><h3>健康數據計算</h3><p>BMI、理想體重、基礎代謝、每日熱量</p><span class="go">開啟 →</span></a>
+    <a class="tile" href="due-date/index.html"><svg class="ic ico"><use href="#i-heart"/></svg><h3>預產期計算</h3><p>預產期、懷孕週數與孕期階段</p><span class="go">開啟 →</span></a>
+    <a class="tile" href="ovulation/index.html"><svg class="ic ico"><use href="#i-drop"/></svg><h3>排卵 / 生理期</h3><p>排卵日、易孕期與下次月經</p><span class="go">開啟 →</span></a>
+    <a class="tile" href="baby-vaccine/index.html"><svg class="ic ico"><use href="#i-baby"/></svg><h3>寶寶疫苗時程</h3><p>月齡與公費疫苗接種日推算</p><span class="go">開啟 →</span></a>
+  </div>
+
+  <h2 class="cat">日期與換算 <span class="cn">Convert</span></h2>
+  <div class="grid catgrid">
+    <a class="tile" href="unit-converter/index.html"><svg class="ic ico"><use href="#i-ruler"/></svg><h3>單位換算</h3><p>長度、重量、坪數、溫度一次換</p><span class="go">開啟 →</span></a>
+    <a class="tile" href="roc-date/index.html"><svg class="ic ico"><use href="#i-calendar"/></svg><h3>民國 / 西元轉換</h3><p>國曆民國互轉、生肖、星座</p><span class="go">開啟 →</span></a>
+    <a class="tile" href="age/index.html"><svg class="ic ico"><use href="#i-cake"/></svg><h3>年齡 / 天數計算</h3><p>足歲、活了幾天、兩日期相差</p><span class="go">開啟 →</span></a>
+    <a class="tile" href="pet-age/index.html"><svg class="ic ico"><use href="#i-paw"/></svg><h3>寵物年齡換算</h3><p>狗狗貓咪換算成人類年齡</p><span class="go">開啟 →</span></a>
+    <a class="tile" href="workdays/index.html"><svg class="ic ico"><use href="#i-workcal"/></svg><h3>工作天數計算</h3><p>兩日期間扣除週末的上班天數</p><span class="go">開啟 →</span></a>
+    <a class="tile" href="chinese-amount/index.html"><svg class="ic ico"><use href="#i-doc"/></svg><h3>中文大寫金額</h3><p>數字轉國字大寫（支票合約用）</p><span class="go">開啟 →</span></a>
+  </div>
+
+  <section class="content" style="padding-bottom:40px">
+    <h2>台灣人最常用的線上計算工具，一站搞定</h2>
+    <p>「生活計算所」整理了台灣人日常最常需要的計算工具：買房看<a href="mortgage/index.html">房貸試算</a>、夏天必查<a href="electricity/index.html">台電電費</a>、上班族關心<a href="salary/index.html">薪資換算</a>與<a href="overtime/index.html">加班費</a>、投資族在意<a href="stock-fee/index.html">股票交易成本</a>與<a href="compound-interest/index.html">複利計算</a>，還有<a href="health/index.html">BMI 與每日熱量</a>、<a href="due-date/index.html">預產期</a>、<a href="discount/index.html">折扣計算</a>、<a href="pet-age/index.html">寵物年齡</a>與<a href="unit-converter/index.html">單位換算</a>。每個工具都即時運算、手機也順手，不用下載 App、不用註冊。</p>
+    <h2>為什麼選生活計算所？</h2>
+    <p>介面乾淨、載入快速、不囉嗦、不用註冊；所有計算都在你的瀏覽器本機完成，不會蒐集或上傳你的資料。涉及費率與法規的工具（例如電費、加班費）會標註採用版本與依據，並在制度調整時更新。想更深入了解，也可以看我們的<a href="guide/index.html">教學文章</a>。</p>
+    <h2>常見問題</h2>
+    <h3>這些計算工具要收費嗎？</h3>
+    <p>完全免費，所有工具都可以直接使用，無需註冊或付費。</p>
+    <h3>手機可以用嗎？</h3>
+    <p>可以，網站採響應式設計，手機、平板、電腦都能順暢使用。</p>
+    <h3>計算結果準確嗎？</h3>
+    <p>採用公開的標準公式與官方費率計算，力求準確；但結果僅供參考，重要決策請以銀行、官方或專業意見為準。</p>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="fabout">
+    <div class="fname">生活計算所<span>Life Calc</span></div>
+    <p>專為台灣人打造的免費線上計算工具，集合房貸、台電電費、薪資與加班費、股票成本、健康數據等日常計算。介面乾淨、手機好用，所有運算在你的瀏覽器本機完成，不收集任何資料。</p>
+  </div>
+  <nav class="footlinks">
+    <a href="mortgage/index.html">房貸試算</a>
+    <a href="electricity/index.html">台電電費</a>
+    <a href="stock-fee/index.html">股票成本</a>
+    <a href="salary/index.html">薪資換算</a>
+    <a href="overtime/index.html">加班費</a>
+    <a href="health/index.html">BMI／熱量</a>
+    <a href="due-date/index.html">預產期</a>
+    <a href="discount/index.html">折扣計算</a>
+    <a href="unit-converter/index.html">單位換算</a>
+    <a href="pet-age/index.html">寵物年齡</a>
+  </nav>
+  <div class="fnav"><a href="guide/index.html">教學文章</a><a href="about/index.html">關於</a><a href="privacy/index.html">隱私權政策</a></div>
+  <b>生活計算所</b> · 免費工具 · 所有計算在你的瀏覽器本機進行，不收集任何資料
+</footer>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>年齡計算機｜實歲、活了幾天、兩日期相差天數 — 生活計算所</title>
+<meta name="description" content="年齡計算機：輸入出生日期，算出實際年齡（幾歲幾月幾天）、總天數、總週數與虛歲，也能計算任兩個日期之間相差多少。">
+<link rel="canonical" href="https://lifecalc.tw/age/">
+<meta property="og:title" content="年齡計算機｜實歲、活了幾天、兩日期相差">
+<meta property="og:description" content="算實際年齡、活了幾天，或兩個日期之間相差多少。">
+<meta property="og:type" content="website"><meta property="og:url" content="https://lifecalc.tw/age/"><meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="生活計算所">
+<meta property="og:image" content="https://lifecalc.tw/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"年齡計算","url":"https://lifecalc.tw/age/","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","inLanguage":"zh-Hant","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://lifecalc.tw/"},{"@type":"ListItem","position":2,"name":"年齡計算","item":"https://lifecalc.tw/age/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"實歲怎麼算？","acceptedAnswer":{"@type":"Answer","text":"從出生日期到今天，計算完整經過幾年幾月幾天，未滿一年的部分不進位，這就是實歲。"}},
+{"@type":"Question","name":"實歲和虛歲差多少？","acceptedAnswer":{"@type":"Answer","text":"傳統虛歲出生即算 1 歲、每逢農曆年加 1，通常比實歲多 1 到 2 歲，本工具提供概估虛歲。"}},
+{"@type":"Question","name":"可以算兩個日期相差幾天嗎？","acceptedAnswer":{"@type":"Answer","text":"可以，填入起始與結束日期，即會算出相差的天數與週數，適合用來倒數或紀念日。"}}]}
+</script>
+</head>
+<body>
+<header><div class="wrap bar"><a class="logo" href="../index.html">生活計算所<span class="en">Life&nbsp;Calc</span></a><div class="spacer"></div><a class="ghost" href="../index.html">所有工具</a></div></header>
+<main class="wrap">
+  <nav class="crumb"><a href="../index.html">首頁</a><span>›</span>年齡計算</nav>
+  <article class="tool">
+    <div class="head"><svg class="ic ico" viewBox="0 0 24 24"><path d="M4.5 21h15"/><path d="M6 21v-7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v7"/><path d="M4 16.2c1.4 0 1.4-1.4 2.8-1.4s1.4 1.4 2.8 1.4 1.4-1.4 2.8-1.4 1.4 1.4 2.8 1.4 1.4-1.4 2.8-1.4"/><path d="M12 9V6.4"/></svg><h1 class="title">年齡 / 天數計算</h1></div>
+    <p class="lead">算實際年齡與活了幾天，或兩個日期之間相差多少。</p>
+    <div class="panel">
+      <div class="field"><label>出生日期 / 起始日期</label><input type="date" id="a_from" oninput="calcA()"></div>
+      <div class="field"><label>計算到（預設今天）</label><input type="date" id="a_to" oninput="calcA()"></div>
+    </div>
+    <div id="a_out"></div>
+
+    <div class="content">
+      <h2>實歲、虛歲怎麼算？</h2>
+      <p>實歲是從出生到今天，完整經過了幾年幾月幾天，未滿一年不進位——填新工作、看年齡限制時用的就是實歲。傳統的虛歲則是一出生就算 1 歲、每過一個農曆年再加 1，所以通常比實歲多 1 到 2 歲。本工具會直接列出你的實際年齡、活了多少天、多少週，以及概估的虛歲，一次看清楚。</p>
+      <h2>也能算兩個日期的距離</h2>
+      <p>把「起始日期」和「計算到」填成任意兩天，就能算出中間相差幾天、幾週，很適合用來倒數重要日子（考試、出國、紀念日），或回頭看「在一起多久了」。本工具特別處理了月底與閏年的邊界，不會出現算錯天數的情況。</p>
+      <h2>常見問題</h2>
+      <h3>計算到的日期可以留空嗎？</h3>
+      <p>可以，留空就預設算到今天。</p>
+      <h3>虛歲準嗎？</h3>
+      <p>虛歲為概估，傳統算法會依農曆年而定，實際以民俗習慣為準。</p>
+      <h3>會用到我的生日資料嗎？</h3>
+      <p>不會，全部在本機計算，不上傳也不儲存。</p>
+    </div>
+
+    <nav class="related"><h2>其他常用工具</h2><div class="rgrid">
+      <a class="rcard" href="../roc-date/index.html"><b>民國 / 西元轉換</b><span>生肖、星座查詢</span></a>
+      <a class="rcard" href="../health/index.html"><b>健康數據計算</b><span>BMI 與熱量</span></a>
+      <a class="rcard" href="../unit-converter/index.html"><b>單位換算</b><span>長度重量換算</span></a>
+    </div></nav>
+  </article>
+</main>
+<footer class="wrap">
+  <div class="fabout">
+    <div class="fname">生活計算所<span>Life Calc</span></div>
+    <p>專為台灣人打造的免費線上計算工具，集合房貸、台電電費、薪資與加班費、股票成本、健康數據等日常計算。介面乾淨、手機好用，所有運算在你的瀏覽器本機完成，不收集任何資料。</p>
+  </div>
+  <nav class="footlinks"><a href="../mortgage/index.html">房貸試算</a><a href="../electricity/index.html">台電電費</a><a href="../stock-fee/index.html">股票成本</a><a href="../salary/index.html">薪資換算</a><a href="../overtime/index.html">加班費</a><a href="../health/index.html">BMI／熱量</a><a href="../unit-converter/index.html">單位換算</a><a href="../compound-interest/index.html">複利計算</a><a href="../age/index.html">年齡計算</a><a href="../roc-date/index.html">民國轉換</a></nav>
+  <div class="fnav"><a href="../index.html">所有工具</a><a href="../about/index.html">關於</a><a href="../privacy/index.html">隱私權政策</a></div>
+  <b>生活計算所</b> · 免費工具 · 本機運算，不收集資料
+</footer>
+<script src="../calc.js"></script>
+</body>
+</html>

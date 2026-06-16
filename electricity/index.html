@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台電電費試算｜夏月／非夏月累進電價計算機 — 生活計算所</title>
+<meta name="description" content="台電住宅電費試算：依累進級距與夏月／非夏月電價，算出單月或雙月電費，附級距明細與冷氣電費估算。採台電 2025/10 最新費率。">
+<link rel="canonical" href="https://lifecalc.tw/electricity/">
+<meta property="og:title" content="台電電費試算｜夏月／非夏月累進電價計算機">
+<meta property="og:description" content="輸入度數即算電費，附級距明細與冷氣電費估算。台電最新住宅費率。">
+<meta property="og:type" content="website"><meta property="og:url" content="https://lifecalc.tw/electricity/"><meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="生活計算所">
+<meta property="og:image" content="https://lifecalc.tw/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"台電電費試算","url":"https://lifecalc.tw/electricity/","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","inLanguage":"zh-Hant","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://lifecalc.tw/"},{"@type":"ListItem","position":2,"name":"台電電費試算","item":"https://lifecalc.tw/electricity/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"台電電費怎麼算？","acceptedAnswer":{"@type":"Answer","text":"住宅採累進電價，用電度數分成多個級距，每段套用不同單價後加總。例如夏月前 120 度每度較便宜，超過的度數依序套用較高單價。"}},
+{"@type":"Question","name":"夏月電價是什麼時候？","acceptedAnswer":{"@type":"Answer","text":"夏月為每年 6 月 1 日至 9 月 30 日，電價較高；其餘月份為非夏月，電價較低。"}},
+{"@type":"Question","name":"冷氣一個月電費多少？","acceptedAnswer":{"@type":"Answer","text":"可用耗電功率（瓦）× 每天使用小時 × 天數 ÷ 1000 估算度數，再帶入累進電價計算。本頁附有冷氣電費快算工具。"}}]}
+</script>
+</head>
+<body>
+<header><div class="wrap bar"><a class="logo" href="../index.html">生活計算所<span class="en">Life&nbsp;Calc</span></a><div class="spacer"></div><a class="ghost" href="../index.html">所有工具</a></div></header>
+<main class="wrap">
+  <nav class="crumb"><a href="../index.html">首頁</a><span>›</span>台電電費試算</nav>
+  <article class="tool">
+    <div class="head"><svg class="ic ico" viewBox="0 0 24 24"><path d="M13 2 6 13h5l-1 9 8-12h-5z"/></svg><h1 class="title">台電電費試算</h1></div>
+    <p class="lead">輸入用電度數，依台電住宅累進級距算出電費，並看清每一段怎麼計。</p>
+    <div class="panel">
+      <div class="field"><label>用電度數（kWh）</label><input type="number" class="num" id="e_kwh" value="400" oninput="calcE()"></div>
+      <div class="field"><label>計費期間</label><div class="seg" id="e_period"><button class="on" data-v="1" onclick="pick(this,'e_period');calcE()">單月</button><button data-v="2" onclick="pick(this,'e_period');calcE()">雙月（一般帳單）</button></div></div>
+      <div class="field"><label>季節</label><div class="seg" id="e_season"><button class="on" data-v="auto" onclick="pick(this,'e_season');calcE()">自動（依本月）</button><button data-v="summer" onclick="pick(this,'e_season');calcE()">夏月</button><button data-v="winter" onclick="pick(this,'e_season');calcE()">非夏月</button></div><div class="hint">夏月為每年 6/1–9/30，電價較高。</div></div>
+    </div>
+    <div id="e_out"></div>
+    <div class="panel"><h4>不知道度數？冷氣／電器電費快算</h4>
+      <div class="row"><div class="field"><label>耗電功率（瓦 W）</label><input type="number" class="num" id="e_w" value="900" oninput="calcEst()"></div>
+        <div class="field"><label>每天使用（小時）</label><input type="number" class="num" id="e_hr" value="8" oninput="calcEst()"></div></div>
+      <div class="field"><label>使用天數</label><input type="number" class="num" id="e_days" value="30" oninput="calcEst()"></div>
+      <div id="est_out"></div><div class="hint">一般分離式冷氣約 700–1100W；變頻冷氣實際耗電更低，此為粗估。</div></div>
+    <div class="note">費率採台電住宅「表燈非營業用」累進電價，<b>114/10/1（2025/10/1）起實施</b>版本。台電調整費率時更新數字即可。完整費率與計算範例以 <a href="https://www.taipower.com.tw/2289/2363/2388/2389/10735/normalPost" target="_blank" rel="noopener">台電官方電價說明</a> 為準。</div>
+
+    <div class="content">
+      <h2>台電累進電價怎麼算？</h2>
+      <p>台灣住宅用電採「累進電價」，意思是用得越多、每度越貴。電費不是用「總度數 × 單一電價」，而是把度數分成好幾段：夏月時前 120 度每度最便宜，121–330 度貴一點，依此類推到 1001 度以上最貴，每一段各自乘上自己的單價再加總。本工具的「級距明細」會把每一段用幾度、單價多少、各算多少錢全部列出來，讓你一眼看懂帳單怎麼來的。</p>
+      <h2>常見家電一個月電費大概多少？</h2>
+      <div class="tablewrap"><table>
+        <tr><th>家電</th><th>假設用法</th><th>每月用電</th><th>月電費</th></tr>
+        <tr><td>變頻冷氣（1 噸）</td><td>每天 8 小時</td><td>約 216 度</td><td>約 860 元</td></tr>
+        <tr><td>電冰箱</td><td>24 小時運轉</td><td>約 36 度</td><td>約 144 元</td></tr>
+        <tr><td>除濕機</td><td>每天 6 小時</td><td>約 54 度</td><td>約 216 元</td></tr>
+        <tr><td>桌上型電腦</td><td>每天 8 小時</td><td>約 36 度</td><td>約 144 元</td></tr>
+        <tr><td>電視</td><td>每天 5 小時</td><td>約 17 度</td><td>約 68 元</td></tr>
+        <tr><td>電風扇</td><td>每天 8 小時</td><td>約 11 度</td><td>約 44 元</td></tr>
+      </table></div>
+      <p>以每度約 4 元粗估，實際會依台電累進級距、機型與使用習慣而不同（用得越多、每度越貴）。想精算某一台電器，用上方「冷氣／電器電費快算」輸入瓦數即可。</p>
+      <h2>夏月與雙月帳單</h2>
+      <p>夏月（6/1–9/30）電價較高，是夏天電費暴增的主因。另外台電住宅多為「雙月」抄表收費，這時各級距的度數上限會加倍（例如 120 度變 240 度），本工具切到「雙月」就會自動套用。想知道冷氣大概吃多少電，可用下方快算工具，輸入瓦數與使用時間估出度數後一鍵帶入。延伸閱讀：<a href="../guide/summer-electricity/index.html">夏季電費為什麼特別貴？怎麼省？</a></p>
+      <h2>常見問題</h2>
+      <h3>為什麼夏天電費特別高？</h3>
+      <p>一是冷氣用電量大、容易進到較貴的級距；二是夏月電價本身就比非夏月高，兩者疊加。</p>
+      <h3>這個費率是最新的嗎？</h3>
+      <p>採用台電 2025 年 10 月起實施的住宅費率。台電調整時會更新；實際帳單以台電為準。</p>
+      <h3>會包含公設電費嗎？</h3>
+      <p>不含。本工具計算的是你自家用電，社區公共電費另計。</p>
+    </div>
+
+    <nav class="related"><h2>其他常用工具</h2><div class="rgrid">
+      <a class="rcard" href="../mortgage/index.html"><b>房貸試算</b><span>每月還款與總利息</span></a>
+      <a class="rcard" href="../unit-converter/index.html"><b>單位換算</b><span>坪數、溫度一次換</span></a>
+      <a class="rcard" href="../salary/index.html"><b>薪資換算</b><span>時薪月薪互換</span></a>
+    </div></nav>
+  </article>
+</main>
+<footer class="wrap">
+  <div class="fabout">
+    <div class="fname">生活計算所<span>Life Calc</span></div>
+    <p>專為台灣人打造的免費線上計算工具，集合房貸、台電電費、薪資與加班費、股票成本、健康數據等日常計算。介面乾淨、手機好用，所有運算在你的瀏覽器本機完成，不收集任何資料。</p>
+  </div>
+  <nav class="footlinks"><a href="../mortgage/index.html">房貸試算</a><a href="../electricity/index.html">台電電費</a><a href="../stock-fee/index.html">股票成本</a><a href="../salary/index.html">薪資換算</a><a href="../overtime/index.html">加班費</a><a href="../health/index.html">BMI／熱量</a><a href="../unit-converter/index.html">單位換算</a><a href="../compound-interest/index.html">複利計算</a><a href="../age/index.html">年齡計算</a><a href="../roc-date/index.html">民國轉換</a></nav>
+  <div class="fnav"><a href="../index.html">所有工具</a><a href="../about/index.html">關於</a><a href="../privacy/index.html">隱私權政策</a></div>
+  <b>生活計算所</b> · 免費工具 · 本機運算，不收集資料
+</footer>
+<script src="../calc.js"></script>
+</body>
+</html>

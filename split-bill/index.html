@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AA 分帳計算機｜聚餐均分、每人應付多少 — 生活計算所</title>
+<meta name="description" content="免費 AA 分帳計算機：輸入總金額與人數，立即算出每人應付多少，並提供湊整數金額方便結帳。聚餐、出遊、團購均分必備，免註冊。">
+<link rel="canonical" href="https://lifecalc.tw/split-bill/">
+<meta property="og:title" content="AA 分帳計算機｜聚餐均分每人應付"><meta property="og:description" content="輸入總金額與人數，算每人應付，附湊整數金額。">
+<meta property="og:type" content="website"><meta property="og:url" content="https://lifecalc.tw/split-bill/"><meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="生活計算所"><meta property="og:image" content="https://lifecalc.tw/og-image.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"AA 分帳計算機","url":"https://lifecalc.tw/split-bill/","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","inLanguage":"zh-Hant","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://lifecalc.tw/"},{"@type":"ListItem","position":2,"name":"AA 分帳計算機","item":"https://lifecalc.tw/split-bill/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"AA 分帳怎麼算？","acceptedAnswer":{"@type":"Answer","text":"把總金額除以人數，就是每人應付的金額。例如 1,000 元、4 個人，每人 250 元。"}},
+{"@type":"Question","name":"金額除不盡怎麼辦？","acceptedAnswer":{"@type":"Answer","text":"可採無條件進位到整數方便收錢，由其中一人多收的零頭補上，或讓付款人吸收幾元零頭。本工具會同時顯示精確金額與湊整數金額。"}},
+{"@type":"Question","name":"每個人吃的不一樣可以分嗎？","acceptedAnswer":{"@type":"Answer","text":"本工具是均分（每人一樣）。若各自金額不同，建議先加總各自項目再個別計算。"}}]}
+</script>
+</head>
+<body>
+<header><div class="wrap bar"><a class="logo" href="../index.html">生活計算所<span class="en">Life&nbsp;Calc</span></a><div class="spacer"></div><a class="ghost" href="../index.html">所有工具</a></div></header>
+<main class="wrap">
+  <nav class="crumb"><a href="../index.html">首頁</a><span>›</span>AA 分帳計算機</nav>
+  <article class="tool">
+    <div class="head"><svg class="ic ico" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="16.5" cy="9" r="2.3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M15 19a4 4 0 0 1 5.5-3.7"/></svg><h1 class="title">AA 分帳計算機</h1></div>
+    <p class="lead">輸入總金額與人數，算出每人應付，並提供湊整數金額方便結帳。</p>
+    <div class="panel">
+      <div class="row">
+        <div class="field"><label>總金額（元）</label><input type="number" class="num" id="sp_total" value="1000" oninput="calcSplit()"></div>
+        <div class="field"><label>分帳人數</label><input type="number" class="num" id="sp_people" value="4" oninput="calcSplit()"></div>
+      </div>
+    </div>
+    <div id="sp_out"></div>
+    <div class="content">
+      <h2>AA 分帳怎麼算？</h2>
+      <p>AA 制就是均分：把總金額除以人數，就是每個人要付的錢。例如四個人吃飯共 1,000 元，每人 250 元。本工具除了算出精確的每人金額，還會幫你算「湊整數」的版本——因為實際收錢時零頭很難找，無條件進位到整數會方便很多，多收的幾元零頭可以給付款的人補貼一下。</p>
+      <h2>聚餐分帳的小技巧</h2>
+      <p>幾個讓分帳更順的做法：金額除不盡時，乾脆每人都湊到整數、零頭由請客或先墊錢的人吸收；如果有人只喝飲料、沒吃正餐，可以把他的部分先扣掉再均分其他人；多人出遊有不同支出時，可以記下每筆「誰先付、付多少」，最後再一次結算誰要補給誰。把分帳算清楚，朋友之間反而更自在。</p>
+      <h2>常見問題</h2>
+      <h3>含服務費嗎？</h3>
+      <p>請把含服務費（如一成）的「實際結帳總額」填入，工具就會把服務費一起均分。</p>
+      <h3>會儲存資料嗎？</h3>
+      <p>不會，全部在你的瀏覽器本機計算，不上傳也不儲存。</p>
+    </div>
+    <nav class="related"><h2>其他常用工具</h2><div class="rgrid">
+      <a class="rcard" href="../discount/index.html"><b>折扣計算機</b><span>打折與均價</span></a>
+      <a class="rcard" href="../chinese-amount/index.html"><b>中文大寫金額</b><span>數字轉國字</span></a>
+      <a class="rcard" href="../fuel-cost/index.html"><b>油錢計算機</b><span>出遊抓油錢</span></a>
+    </div></nav>
+  </article>
+</main>
+<footer class="wrap">
+  <div class="fabout"><div class="fname">生活計算所<span>Life Calc</span></div><p>專為台灣人打造的免費線上計算工具，集合房貸、台電電費、薪資與加班費、股票成本、健康數據等日常計算。介面乾淨、手機好用，所有運算在你的瀏覽器本機完成，不收集任何資料。</p></div>
+  <nav class="footlinks"><a href="../mortgage/index.html">房貸試算</a><a href="../electricity/index.html">台電電費</a><a href="../stock-fee/index.html">股票成本</a><a href="../salary/index.html">薪資換算</a><a href="../overtime/index.html">加班費</a><a href="../health/index.html">BMI／熱量</a><a href="../unit-converter/index.html">單位換算</a><a href="../compound-interest/index.html">複利計算</a><a href="../age/index.html">年齡計算</a><a href="../roc-date/index.html">民國轉換</a></nav>
+  <div class="fnav"><a href="../index.html">所有工具</a><a href="../guide/index.html">教學文章</a><a href="../about/index.html">關於</a><a href="../privacy/index.html">隱私權政策</a></div>
+  <b>生活計算所</b> · 免費工具 · 本機運算，不收集資料
+</footer>
+<script src="../calc.js"></script>
+</body>
+</html>

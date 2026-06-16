@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMI 計算與每日熱量 TDEE｜理想體重、基礎代謝 — 生活計算所</title>
+<meta name="description" content="健康數據計算機：一次算出 BMI、健康體重範圍、基礎代謝率 BMR 與每日建議熱量 TDEE，並提供減重、維持、增肌的熱量參考。">
+<link rel="canonical" href="https://lifecalc.tw/health/">
+<meta property="og:title" content="BMI 計算與每日熱量 TDEE｜理想體重、基礎代謝">
+<meta property="og:description" content="一次算出 BMI、健康體重範圍、BMR 與每日建議熱量。">
+<meta property="og:type" content="website"><meta property="og:url" content="https://lifecalc.tw/health/"><meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="生活計算所">
+<meta property="og:image" content="https://lifecalc.tw/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"BMI 與每日熱量計算","url":"https://lifecalc.tw/health/","applicationCategory":"HealthApplication","operatingSystem":"Web","inLanguage":"zh-Hant","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://lifecalc.tw/"},{"@type":"ListItem","position":2,"name":"健康數據計算","item":"https://lifecalc.tw/health/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"BMI 怎麼算？","acceptedAnswer":{"@type":"Answer","text":"BMI = 體重（公斤）÷ 身高（公尺）的平方。台灣以 18.5–24 為健康範圍，24–27 過重，27 以上為肥胖。"}},
+{"@type":"Question","name":"BMR 和 TDEE 有什麼不同？","acceptedAnswer":{"@type":"Answer","text":"BMR 是基礎代謝率，指完全休息時的熱量消耗；TDEE 是每日總消耗，等於 BMR 乘上活動量係數，是控制體重時的熱量參考。"}},
+{"@type":"Question","name":"為什麼改年齡、活動量 BMI 沒變？","acceptedAnswer":{"@type":"Answer","text":"BMI 只由身高與體重決定，與年齡、活動量無關。年齡與活動量影響的是 BMR 與每日建議熱量 TDEE。"}}]}
+</script>
+</head>
+<body>
+<header><div class="wrap bar"><a class="logo" href="../index.html">生活計算所<span class="en">Life&nbsp;Calc</span></a><div class="spacer"></div><a class="ghost" href="../index.html">所有工具</a></div></header>
+<main class="wrap">
+  <nav class="crumb"><a href="../index.html">首頁</a><span>›</span>健康數據計算</nav>
+  <article class="tool">
+    <div class="head"><svg class="ic ico" viewBox="0 0 24 24"><path d="M3 12h4l2.5-6 4 12 2.5-6H21"/></svg><h1 class="title">健康數據計算</h1></div>
+    <p class="lead">一次算出 BMI、健康體重範圍、基礎代謝率與每日建議熱量。</p>
+    <div class="panel">
+      <div class="field"><label>生理性別</label><div class="seg" id="h_sex"><button class="on" data-v="male" onclick="pick(this,'h_sex');calcH()">男性</button><button data-v="female" onclick="pick(this,'h_sex');calcH()">女性</button></div></div>
+      <div class="row"><div class="field"><label>身高（公分）</label><input type="number" class="num" id="h_h" value="170" oninput="calcH()"></div>
+        <div class="field"><label>體重（公斤）</label><input type="number" class="num" id="h_w" value="65" oninput="calcH()"></div></div>
+      <div class="field"><label>年齡</label><input type="number" class="num" id="h_age" value="30" oninput="calcH()"></div>
+      <div class="field"><label>日常活動量</label><select id="h_act" onchange="calcH()">
+        <option value="1.2">久坐（幾乎不運動）</option><option value="1.375" selected>輕度（每週運動 1–3 天）</option>
+        <option value="1.55">中度（每週運動 3–5 天）</option><option value="1.725">高度（每週運動 6–7 天）</option>
+        <option value="1.9">極高（勞力工作 / 每天高強度）</option></select></div>
+    </div>
+    <div id="h_out"></div>
+    <div class="note">BMI 對肌肉量高的人會偏高估，對長者可能低估，僅供一般參考。年齡與活動量用於計算每日熱量（綠色卡片）。健康體重範圍以 BMI 18.5–24 計算。</div>
+
+    <div class="content">
+      <h2>BMI 怎麼算、健康範圍是多少？</h2>
+      <p>BMI（身體質量指數）的算法是「體重（公斤）÷ 身高（公尺）的平方」。台灣國健署以 18.5–24 為健康範圍，低於 18.5 為過輕，24–27 為過重，27 以上屬肥胖。要提醒的是，BMI 只看身高體重，對肌肉量高的健身者會高估、對肌肉流失的長者可能低估，所以它是快速參考，不是唯一指標。延伸閱讀：<a href="../guide/bmi-standard/index.html">BMI 多少才標準？理想體重一次看</a></p>
+      <h2>BMR 與每日熱量 TDEE</h2>
+      <p>想控制體重，更實用的是熱量。BMR（基礎代謝率）是你完全休息一天會消耗的熱量，本工具用 Mifflin-St Jeor 公式，依性別、身高、體重、年齡計算。把 BMR 乘上你的活動量係數，就得到 TDEE（每日總消耗）。吃低於 TDEE 會減重、高於會增重。這也是為什麼調整「年齡」和「活動量」時，BMI 不會變、但下方的熱量會跟著變。</p>
+      <h2>常見問題</h2>
+      <h3>減重要吃多少熱量？</h3>
+      <p>一般建議每日比 TDEE 少約 500 大卡，約對應每週減 0.5 公斤，本工具已直接列出參考值。</p>
+      <h3>這能取代醫療建議嗎？</h3>
+      <p>不能，數據僅供一般參考，特殊健康狀況或減重計畫請諮詢醫師或營養師。</p>
+      <h3>資料會外傳嗎？</h3>
+      <p>不會，全部在你的瀏覽器本機計算，不上傳、不儲存。</p>
+    </div>
+
+    <nav class="related"><h2>其他常用工具</h2><div class="rgrid">
+      <a class="rcard" href="../age/index.html"><b>年齡計算</b><span>足歲與天數</span></a>
+      <a class="rcard" href="../unit-converter/index.html"><b>單位換算</b><span>公斤、公分換算</span></a>
+      <a class="rcard" href="../electricity/index.html"><b>台電電費試算</b><span>夏月累進級距</span></a>
+    </div></nav>
+  </article>
+</main>
+<footer class="wrap">
+  <div class="fabout">
+    <div class="fname">生活計算所<span>Life Calc</span></div>
+    <p>專為台灣人打造的免費線上計算工具，集合房貸、台電電費、薪資與加班費、股票成本、健康數據等日常計算。介面乾淨、手機好用，所有運算在你的瀏覽器本機完成，不收集任何資料。</p>
+  </div>
+  <nav class="footlinks"><a href="../mortgage/index.html">房貸試算</a><a href="../electricity/index.html">台電電費</a><a href="../stock-fee/index.html">股票成本</a><a href="../salary/index.html">薪資換算</a><a href="../overtime/index.html">加班費</a><a href="../health/index.html">BMI／熱量</a><a href="../unit-converter/index.html">單位換算</a><a href="../compound-interest/index.html">複利計算</a><a href="../age/index.html">年齡計算</a><a href="../roc-date/index.html">民國轉換</a></nav>
+  <div class="fnav"><a href="../index.html">所有工具</a><a href="../about/index.html">關於</a><a href="../privacy/index.html">隱私權政策</a></div>
+  <b>生活計算所</b> · 免費工具 · 本機運算，不收集資料
+</footer>
+<script src="../calc.js"></script>
+</body>
+</html>
